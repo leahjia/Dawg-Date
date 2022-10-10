@@ -1,0 +1,25 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    margin: 2rem;
+    background-color: #81b786;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+p {
+    padding: .5rem 1.5rem;
+}
+
+section {
+    margin: 1.5em;
+}
