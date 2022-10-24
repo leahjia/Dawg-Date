@@ -201,3 +201,39 @@ footer {
     color: #5c13c9;
     cursor: pointer;
 }
+
+.profile-info {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+section.profile-info p {
+    text-align: left;
+    padding-top: 20px;
+}
+
+.edit-profile {
+    padding-top: 20px;
+}
+
+.edit {
+    border: 2px solid #9874ce;
+    margin: 10px;
+    padding: .5rem 2rem;
+    border-radius: 5rem;
+    background-color: transparent;
+    color: #5c13c9;
+    cursor: pointer;
+}
+
+.profile-pic {
+    padding: 50px;
+}
+
+.serene {
+    max-height: 400px;
+    max-width: 400px;
+}
