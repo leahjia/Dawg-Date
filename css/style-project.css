@@ -19,6 +19,7 @@ header {
     background-size: cover;
     padding-left: 5%;
     padding-right: 5%;
+
 }
 
 .logo {
@@ -236,4 +237,79 @@ section.profile-info p {
 .serene {
     max-height: 400px;
     max-width: 400px;
+}
+
+.navbar-bg {
+    background-image: linear-gradient(#33114999, #b4b7d14d), url('../img/bg-header.jpeg');
+
+}
+
+.landing {
+    background-image: url('../img/bg-landing.jpg');
+    background-position: bottom;
+    background-size: cover;
+    height: 100vh;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);
+}
+
+.landing header {
+
+}
+
+.welcome {
+    color: white;
+    font-weight: bolder;
+    font-size: 6rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.create-account {
+    display: block;
+    width: fit-content;
+    padding: 10px 30px;
+    margin: auto;
+    background-image: linear-gradient(to right, #5c13c9,#9874ce);
+    color: white;
+    border-radius: 40px;
+    font-weight: bold;
+}
+
+.create-account:hover {
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+    color: rgba(255,255,255,.8);
+    border-width: 10px;
+    border-color: white;
+}
+
+.about {
+    margin: 2rem 2rem;
+    text-align: center;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-image-bg {
+    background: lavender;
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    margin: 20px;
+}
+
+.about-image {
+    height: 64px;
+    margin-top: 30px;
+}
+
+.about-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    flex-basis: 50%;
+    padding: 20px;
 }
