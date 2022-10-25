@@ -112,6 +112,16 @@ body {
     background-size: cover;
 }
 
+.cover {
+    background-image: url(../img/mgh_interior.jpeg.crdownload);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.profile-head {
+    transform: translateY(5rem)
+}
+
 .fa {
     padding: 20px;
     width: 60px;
