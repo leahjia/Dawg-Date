@@ -1,17 +1,15 @@
 import React from 'react';
 
 export function Header(props) {
-    //just a function
-    const schoolName = "iSchool";
+    const groupName = "Group BB-1";
   
-    //what the HTML looks like
     return (
       <header className="text-light py-3">
         <div className="container">
-          <h1>Joel Ross</h1>
-          <p>{schoolName}</p>
+          <h1>DawgDate</h1>
+          <p>{groupName}</p>
           <p>
-            <a className="btn btn-success d-none d-md-inline d-lg-none" href="http://getbootstrap.com/">Built with Bootstrap</a>
+            <a className="btn btn-success d-none d-md-inline d-lg-none" href="http://getbootstrap.com/">dawgDate draft 2</a>
           </p>
         </div>
       </header>
