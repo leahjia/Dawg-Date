@@ -1,6 +1,6 @@
 [
-    {"name": "person 1", "title": "?", "img": "../public/img/person-1.avif"},
-    {"name": "person 2", "title": "?", "img": "../public/img/peson-2.jpg"},
-    {"name": "person 3", "title": "?", "img": "../public/img/peson-3.jpg"},
-    {"name": "person 4", "title": "?", "img": "../public/img/peson-4.jpg"}
-  ]
+    {"name": "person 1", "description": "placeholder", "img": "../public/img/person-1.avif"},
+    {"name": "person 2", "description": "placeholder", "img": "../public/img/peson-2.jpg"},
+    {"name": "person 3", "description": "placeholder", "img": "../public/img/peson-3.jpg"},
+    {"name": "person 4", "description": "placeholder", "img": "../public/img/peson-4.jpg"}
+]
