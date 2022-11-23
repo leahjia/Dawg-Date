@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 
 
 function ProfileCard(props) {
+
+    const currentUser = props.currentUser;
     const profileData = props.profileData;
-    const userAge = (function(date) {
+    const userAge = function(date) {
       const today = new Date();
       const birthDate = new Date(date);
       let age = today.getFullYear() - birthDate.getFullYear();
@@ -13,7 +15,10 @@ function ProfileCard(props) {
           age--;
       }
       return age;
-    })(profileData.birthdate);
+    }(profileData.birthdate);
+    
+
+    let heartColor = 'grey';
 
     const handleConnect = function (event) {
       
@@ -22,12 +27,12 @@ function ProfileCard(props) {
     return (
       <div className="profile">
         <Link to={"/:"+profileData.UWNetId}>
-          <img src={"img/" + profileData.img} alt={profileData.name + " Profile Picture"} />
+          <img src={"/img/" + profileData['profile-pic']} alt={profileData.name + " Profile Picture"} />
           <figcaption>Image from Unsplash</figcaption>
           <h2 class="profile-name">{profileData.name} | {userAge} ({profileData.pronouns})</h2>
           <p class="profile-description">{profileData.bio}</p>
         </Link>
-        <button className="btn like-button" onClick={handleClick}>
+        <button className="btn like-button" onClick={handleConnect}>
           <span className="material-icons" style={{ color: heartColor }}>favorite_border</span>
         </button>
       </div>
@@ -39,7 +44,8 @@ function ProfileCard(props) {
     const componentArray = props.profileData.map((profileObj) => {
       const component = (
         <ProfileCard 
-          profileData={profileObj} 
+          profileData={profileObj}
+          currentUser={props.currentUser} 
           key={profileObj.UWNetId}
         />
       )

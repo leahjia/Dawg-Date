@@ -1,6 +1,6 @@
 [
     {"UWNetId": "person1", "name": "person 1", "gender": "Male", "pronouns": "he/him", "bio": "bio placeholder", "birthdate": "2001-05-23", "hometown": "Bellevue, WA", "major": "Biology", "profile-pic": "person-1.avif", "connections": ["person2", "person3"]},
     {"UWNetId": "person2", "name": "person 2", "gender": "Female", "pronouns": "she/her", "bio": "bio placeholder", "birthdate": "2000-02-12", "hometown": "Los Angeles, CA", "major": "Computer Science", "profile-pic": "person-2.jpg", "connections": ["person3", "person1"]},
-    {"UWNetId": "person3", "name": "person 3", "gender": "Female", "pronouns": "she/her", "bio": "bio placeholder", "birthdate": "2001-08-21", "hometown": "Seattle, WA", "major": "Applied Mathematics", "profile-pic": "person-3.jpg", "connections": ["person1", "person2", "person4"]},
+    {"UWNetId": "person3", "name": "person 3", "gender": "Female", "pronouns": "he/him", "bio": "bio placeholder", "birthdate": "2001-08-21", "hometown": "Seattle, WA", "major": "Applied Mathematics", "profile-pic": "person-3.jpg", "connections": ["person1", "person2", "person4"]},
     {"UWNetId": "person4", "name": "person 4", "gender": "unspecified", "pronouns": "they/them", "bio": "bio placeholder", "birthdate": "2002-10-23", "hometown": "Seattle, WA", "major": "Informatics", "profile-pic": "person-4.jpg", "connections": ["person3"]}
 ]
