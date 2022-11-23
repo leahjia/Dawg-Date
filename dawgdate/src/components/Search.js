@@ -2,10 +2,13 @@ import React, { useState } from "react";
 
 export default function Search(props) {
     const [select, setSelect] = useState('')
-
     const handleSelect = (event) => {
-        setSelect(event.target.value)
+        const val = event.target.value
+        const type = event.currentTarget.id
+        setSelect(val)
+        props.applyFilterCallback(val, type)
     }
+
     const uniMajors = [...new Set(props.profileData.map(p => p.major))]
     const majorElems = uniMajors.map((major) => {
         return <option key={major} value={major}>{major}</option>
@@ -19,6 +22,7 @@ export default function Search(props) {
         return <option key={hometown} value={hometown}>{hometown}</option>
     })
 
+
     return (
         <section className="search-container">
 
@@ -27,11 +31,11 @@ export default function Search(props) {
                 <button className="search-button" aria-label="Search">Search</button>
             </div>
             <div className="filter-group">
-                <select id="teamSelect" className="filter" aria-label="major-filter" value={select} onChange={handleSelect}>
+                <select id="majorSelect" className="filter" aria-label="major-filter" value={select} onChange={handleSelect} >
                     <option value="" >Major</option>{majorElems}</select>
-                <select id="teamSelect" className="filter" aria-label="major-filter" value={select} onChange={handleSelect}>
+                <select id="genderSelect" className="filter" aria-label="gender-filter" value={select} onChange={handleSelect} >
                     <option value="" >Gender</option>{genderElems}</select>
-                <select id="teamSelect" className="filter" aria-label="major-filter" value={select} onChange={handleSelect}>
+                <select id="hometownSelect" className="filter" aria-label="hometown-filter" value={select} onChange={handleSelect}>
                     <option value="" >Area</option>{hometownElems}</select>
             </div>
         </section>
