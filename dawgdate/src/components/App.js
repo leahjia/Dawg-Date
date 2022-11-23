@@ -16,7 +16,6 @@ export default function App(props) {
     <div>
       <Routes>
         <Route index element={<LandingPage />} />
-        <Route path="/landing" element={<LandingPage />} />
         <Route path="/home" element={<HomePage profileData={props.profileData} currentUser={currentUser}/>} />
         <Route path="/profile" element={<SelfProfilePage currentUser={currentUser}/>} />
         <Route path="/connections" element={<ConnectionsPage profileData={props.profileData} currentUser={currentUser}/>} />
