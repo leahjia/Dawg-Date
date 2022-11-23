@@ -11,6 +11,19 @@ import ConnectionsPage from './ConnectionsPage.js';
 export default function App(props) {
   // hard coded user
   const [currentUser, setCurrentUser] = useState(props.profileData[0]);
+  const [currentUserConnections, setCurrentUserConnections] = useState(currentUser.connections);
+
+  const handleConnection = function (connecteeString) {
+
+    
+
+    const newConnections = [...currentUserConnections];
+    if (currentUserConnections.includes(connectee)) {
+      newConnections.splice(newConnections.indexOf(connectee), 1);
+    } else {
+      newConnections.push(connectee);
+    }
+  }
 
   return (
     <div>
