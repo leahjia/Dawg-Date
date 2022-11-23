@@ -6,21 +6,19 @@ import { ProfileList } from './ProfileList.js';
 export default function HomePage(props) {
     return (
         <div>
-            <section>
-                <header className="navbar-bg">
-                    <NavBar></NavBar>
-                </header>
+			<header className="navbar-bg">
+				<NavBar></NavBar>
+			</header>
 
-                <main>
-                    <section className="search-container">
-                        <Search></Search>
-                    </section>
-                    <section className="profile-list">
-                        <h1>People You May Know</h1>
-                        <ProfileList></ProfileList>
-                    </section>
-                </main>
-            </section>
+			<main>
+				<section className="search-container">
+					<Search></Search>
+				</section>
+				<section className="profile-list">
+					<h1>People You May Know</h1>
+					<ProfileList></ProfileList>
+				</section>
+			</main>
         </div>
     )
 
