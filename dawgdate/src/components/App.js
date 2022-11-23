@@ -7,6 +7,8 @@ import SelfProfilePage from './SelfProfilePage.js';
 import OtherProfilePage from './OtherProfilePage.js';
 import Footer from './Footer.js';
 
+import USERS from '../profile-data.json';
+
 
 export default function App(props) {
 
@@ -14,7 +16,7 @@ export default function App(props) {
     <div>
       <Routes>
         <Route index element={<LandingPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home" element={<HomePage userData={USERS}/>} />
         <Route path="/profile" element={<SelfProfilePage />} />
         <Route path="/:username" element={<OtherProfilePage />} />
       </Routes>

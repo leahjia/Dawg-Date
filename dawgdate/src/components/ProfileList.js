@@ -3,9 +3,9 @@ import profile_data from '../profile-data.json';
 
 function ProfileCard(props) {
     const theName = props.profiledata.name;
-    const theDescript = props.profiledata.description;
+    const theDescript = props.profiledata.bio;
   
-    let cssProfiles = "card col-6"; 
+    let cssProfiles = "card col-4"; 
     if(props.nowShowing) { //logic!
       cssProfiles += " bg-warning bg-gradient"
     }
@@ -20,7 +20,7 @@ function ProfileCard(props) {
   
   export function ProfileList(props) {
   
-    const componentArray = profile_data.map((profileObj) => {
+    const componentArray = props.userData.map((profileObj) => {
       const component = (
         <ProfileCard 
           profiledata={profileObj} 

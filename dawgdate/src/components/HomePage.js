@@ -16,7 +16,7 @@ export default function HomePage(props) {
 				</section>
 				<section className="profile-list">
 					<h1>People You May Know</h1>
-					<ProfileList></ProfileList>
+					<ProfileList userData={props.userData}></ProfileList>
 				</section>
 			</main>
         </div>
