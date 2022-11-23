@@ -1,9 +1,22 @@
 import React from "react";
+import { useParams } from 'react-router-dom';
+
 
 import NavBar from "./NavBar.js";
 
 export default function OtherProfilePage(props) {
-	const person = props.profileData
+	const personNetId = useParams().UWNetId;
+	console.log(personNetId);
+
+	const person = props.profileData.filter((userProfile) => {
+		if (personNetId === userProfile.UWNetId) {
+			return true;
+		} else {
+			return false;
+		}
+	})[0];
+	console.log(person); 
+
 	return (
 		<div>
 			<header className="navbar-bg">

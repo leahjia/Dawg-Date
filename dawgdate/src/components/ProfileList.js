@@ -25,12 +25,12 @@ function ProfileCard(props) {
 
     const handleConnect = function (event) {
       const user = event.target.user;
-        
+
     }
   
     return (
       <div className="profile">
-        <Link to={"/:"+profileData.UWNetId}>
+        <Link to={"/"+profileData.UWNetId}>
         <img src={profileData.img} alt={profileData.name + " Profile Picture"} />
           <figcaption>Image from Unsplash</figcaption>
           <h2 className="profile-name">{profileData.name} | {userAge} ({profileData.pronouns})</h2>

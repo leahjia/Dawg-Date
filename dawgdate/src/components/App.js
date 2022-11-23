@@ -6,6 +6,7 @@ import HomePage from './HomePage.js';
 import OtherProfilePage from './OtherProfilePage.js';
 import Footer from './Footer.js';
 import ConnectionsPage from './ConnectionsPage.js';
+import MyProfile from './MyProfile.js';
 
 export default function App(props) {
   // hard coded user
@@ -29,9 +30,9 @@ export default function App(props) {
       <Routes>
         <Route index element={<LandingPage handleLoginCallback={setCurrentUser}/>} />
         <Route path="/home" element={<HomePage profileData={props.profileData} currentUser={currentUser} handleConnectionCallBack={setCurrentUser}/>} />
-        <Route path="/profile" element={<SelfProfilePage currentUser={currentUser}/>} />
+        <Route path="/profile" element={<MyProfile currentUser={currentUser}/>} />
         <Route path="/connections" element={<ConnectionsPage profileData={props.profileData} currentUser={currentUser} handleConnectionCallBack={handleConnection}/>} />
-        <Route path="/:username" element={<OtherProfilePage currentUser={currentUser}/>} />
+        <Route path="/:UWNetId" element={<OtherProfilePage profileData={props.profileData} currentUser={currentUser}/>} />
       </Routes>
       <Footer/>
     </div>
