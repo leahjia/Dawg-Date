@@ -22,7 +22,7 @@ export default function ConnectionsPage(props) {
 			<main>
 				<div className="profile-list">
 					<h1>My Connections</h1>
-					<ProfileList profileData={displayedData} currentUser={props.currentUser}/>
+					<ProfileList profileData={displayedData} currentUser={props.currentUser} handleConnectionCallBack={props.handleConnectionCallback}/>
 				</div>
 			</main>
 		</div>
