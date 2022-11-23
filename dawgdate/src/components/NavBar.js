@@ -3,24 +3,24 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar(props) {
 
-	let navLinks;
+    let navLinks;
 
-	if (props.variant === 'landing') {
-		navLinks = (
-			<ul>
-				<li><Link to="/home">LOGIN</Link></li>
-			</ul>
-		)
-	} else {
-		navLinks = (
-			<ul>
-				<li><Link to="/home">HOME</Link></li>
-				<li><Link to="">CONNECTIONS</Link></li>
-				<li><Link to="">CHAT</Link></li>
-				<li><Link to="/profile">MY PROFILE</Link></li>
-			</ul>
-		)
-	}
+    if (props.variant === 'landing') {
+        navLinks = (
+            <ul>
+                <li><Link to="/home">LOGIN</Link></li>
+            </ul>
+        )
+    } else {
+        navLinks = (
+            <ul>
+                <li><Link to="/home">HOME</Link></li>
+                <li><Link to="">CONNECTIONS</Link></li>
+                <li><Link to="/profile">MY PROFILE</Link></li>
+                <li><Link to="/landing">LOG OUT</Link></li>
+            </ul>
+        )
+    }
 
     return (
         <nav>

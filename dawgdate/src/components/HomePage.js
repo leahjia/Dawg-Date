@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from './Footer.js';
 import NavBar from './NavBar.js';
 import Search from './Search.js';
 import { ProfileList } from './ProfileList.js';
