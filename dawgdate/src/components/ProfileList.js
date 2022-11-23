@@ -32,8 +32,8 @@ function ProfileCard(props) {
           <img src={profileData.img} alt={profileData.name + " Profile Picture"} />
           <figcaption>Image from Unsplash</figcaption>
           <h2 className="profile-name">{profileData.name} | {userAge} ({profileData.pronouns})</h2>
-          <p className="profile-description">{profileData.bio}</p>
         </Link>
+        <p className="profile-description">{profileData.bio}</p>
         <button className="btn like-button" onClick={handleConnect}>
           <span className="material-icons" style={{ color: heartColor }}>favorite_border</span>
         </button>
