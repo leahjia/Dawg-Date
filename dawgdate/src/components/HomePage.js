@@ -10,7 +10,7 @@ export default function HomePage(props) {
                 <NavBar></NavBar>
             </header>
             <main>
-                <Search />
+                <Search profileData={props.profileData} />
                 <section className="profile-list">
                     <h1>People You May Know</h1>
                     <ProfileList></ProfileList>

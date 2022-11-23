@@ -9,12 +9,11 @@ import Footer from './Footer.js';
 
 
 export default function App(props) {
-
   return (
     <div>
       <Routes>
         <Route path="/landing" element={<LandingPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home" element={<HomePage profileData={props.profileData} />} />
         <Route path="/profile" element={<SelfProfilePage />} />
         <Route path="/:username" element={<OtherProfilePage />} />
       </Routes>
