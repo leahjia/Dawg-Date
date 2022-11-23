@@ -17,7 +17,7 @@ export default function App(props) {
       <Routes>
         <Route index element={<LandingPage />} />
         <Route path="/home" element={<HomePage profileData={props.profileData} currentUser={currentUser}/>} />
-        <Route path="/profile" element={<SelfProfilePage currentUser={currentUser}/>} />
+        <Route path="/profile" element={<OtherProfilePage currentUser={currentUser}/>} />
         <Route path="/connections" element={<ConnectionsPage profileData={props.profileData} currentUser={currentUser}/>} />
         <Route path="/:username" element={<OtherProfilePage currentUser={currentUser}/>} />
       </Routes>
