@@ -15,7 +15,7 @@ export default function NavBar(props) {
         navLinks = (
             <ul>
                 <li><Link to="/home">HOME</Link></li>
-                <li><Link to="">CONNECTIONS</Link></li>
+                <li><Link to="/connections">CONNECTIONS</Link></li>
                 <li><Link to="/profile">MY PROFILE</Link></li>
                 <li><Link to="/landing">LOG OUT</Link></li>
             </ul>
