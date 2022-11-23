@@ -2,7 +2,8 @@ import React from "react";
 
 export default function Search(props) {
     return (
-        <div>
+        <section className="search-container">
+
             <div className="search-bar">
                 <input type="search" id="search-input" placeholder="Search profile names here" />
                 <button className="search-button" aria-label="Search">Search</button>
@@ -13,6 +14,6 @@ export default function Search(props) {
                 <button className="filter" aria-label="interest-filter">Same Interest</button>
                 <button className="filter" aria-label="age-filter">Same Age</button>
             </div>
-        </div>
+        </section>
     )
 }
