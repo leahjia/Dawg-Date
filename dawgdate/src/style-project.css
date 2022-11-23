@@ -22,6 +22,10 @@ header {
 
 }
 
+main {
+    min-height: 90vh;
+}
+
 .logo {
     cursor: pointer;
 }
