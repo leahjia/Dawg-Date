@@ -3,7 +3,6 @@ import { Route, Routes, Outlet } from 'react-router-dom';
 
 import LandingPage from './LandingPage.js';
 import HomePage from './HomePage.js';
-import SelfProfilePage from './SelfProfilePage.js';
 import OtherProfilePage from './OtherProfilePage.js';
 import Footer from './Footer.js';
 import ConnectionsPage from './ConnectionsPage.js';

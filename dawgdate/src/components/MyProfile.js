@@ -3,7 +3,7 @@ import React from "react";
 import NavBar from "./NavBar";
 import OtherProfilePage from "./OtherProfilePage";
 
-export default function ConnectionsPage(props) {
+export default function MyProfile(props) {
 
 	return (
 		<div>
@@ -13,7 +13,7 @@ export default function ConnectionsPage(props) {
 			<main>
 				<div className="profile-list">
 					<h1>My Profile</h1>
-					<OtherProfilePage />
+                    <OtherProfilePage profileData={props.profileData} />
 				</div>
 			</main>
 		</div>
