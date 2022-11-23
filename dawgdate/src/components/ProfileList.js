@@ -29,7 +29,7 @@ function ProfileCard(props) {
     return (
       <div className="profile">
         <Link to={"/:"+profileData.UWNetId}>
-          <img src={"/img/" + profileData['profile-pic']} alt={profileData.name + " Profile Picture"} />
+          <img src={profileData.img} alt={profileData.name + " Profile Picture"} />
           <figcaption>Image from Unsplash</figcaption>
           <h2 className="profile-name">{profileData.name} | {userAge} ({profileData.pronouns})</h2>
           <p className="profile-description">{profileData.bio}</p>
