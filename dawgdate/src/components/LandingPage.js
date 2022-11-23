@@ -28,7 +28,7 @@ function LandingAbout(props) {
 			<div className="about-container">
 				<div className="about-card">
 					<div clasName="card-image-bg">
-						<img src="../public/img/lock.png" className="about-image" />
+						<img src="img/lock.png" className="about-image" />
 					</div>
 					<p>DawgDate provides a secure platform exclusively for University of Washington students to safely meet eachother.</p>
 				</div>
