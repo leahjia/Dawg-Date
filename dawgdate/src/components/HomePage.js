@@ -34,7 +34,7 @@ export default function HomePage(props) {
         <main>
           <Search profileData={props.profileData} applyFilterCallback={applyFilter} />
 				  <div className="profile-list">
-				  	<h1>Possible Connections</h1>
+				  	<h1>People You Might Know</h1>
 				  	<ProfileList profileData={displayedData} currentUser={props.currentUser}/>
           </div>
         </main>
