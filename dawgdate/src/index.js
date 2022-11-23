@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './components/App.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './index.css';
 import './style-project.css';
 
 import SAMPLE_PROFILES from './profile-data.json';

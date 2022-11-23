@@ -1,30 +1,54 @@
 import React from 'react';
-import profile_data from '../profile-data.json';
+import { Link } from 'react-router-dom'; 
+
 
 function ProfileCard(props) {
-    const theName = props.profiledata.name;
-    const theDescript = props.profiledata.description;
-  
-    let cssProfiles = "card col-6"; 
-    if(props.nowShowing) { //logic!
-      cssProfiles += " bg-warning bg-gradient"
+
+    const currentUser = props.currentUser;
+    const profileData = props.profileData;
+    const userAge = function(date) {
+      const today = new Date();
+      const birthDate = new Date(date);
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+      return age;
+    }(profileData.birthdate);
+    
+    let heartColor = 'grey';
+    if (currentUser.connections.includes(profileData.UWNetId)) {
+      heartColor = 'red';
+    }
+
+    const handleConnect = function (event) {
+      
     }
   
     return (
-      <div className={cssProfiles}>
-        <img src={"/"+props.profiledata.img} alt="person picture" />
-        <h3>{theName}: {theDescript}</h3>
+      <div className="profile">
+        <Link to={"/:"+profileData.UWNetId}>
+          <img src={"/img/" + profileData['profile-pic']} alt={profileData.name + " Profile Picture"} />
+          <figcaption>Image from Unsplash</figcaption>
+          <h2 className="profile-name">{profileData.name} | {userAge} ({profileData.pronouns})</h2>
+          <p className="profile-description">{profileData.bio}</p>
+        </Link>
+        <button className="btn like-button" onClick={handleConnect}>
+          <span className="material-icons" style={{ color: heartColor }}>favorite_border</span>
+        </button>
       </div>
     )
   }
   
   export function ProfileList(props) {
   
-    const componentArray = profile_data.map((profileObj) => {
+    const componentArray = props.profileData.map((profileObj) => {
       const component = (
         <ProfileCard 
-          profiledata={profileObj} 
-          key={profileObj.name}
+          profileData={profileObj}
+          currentUser={props.currentUser} 
+          key={profileObj.UWNetId}
         />
       )
       return component;
