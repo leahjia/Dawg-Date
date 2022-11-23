@@ -3,8 +3,7 @@ import React from "react";
 import NavBar from "./NavBar.js";
 
 export default function OtherProfilePage(props) {
-	// const img = props.profileData.img
-
+	const person = props.profileData
 	return (
 		<div>
 			<header className="navbar-bg">
