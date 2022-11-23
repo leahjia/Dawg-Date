@@ -12,7 +12,7 @@ function ProfileCard(props) {
   
     return (
       <div className={cssProfiles}>
-        <img src={"img/"+props.profiledata.img} alt="person picture" />
+        <img src={"/"+props.profiledata.img} alt="person picture" />
         <h3>{theName}: {theDescript}</h3>
       </div>
     )

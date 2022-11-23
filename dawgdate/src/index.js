@@ -8,10 +8,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import './style-project.css';
 
+import SAMPLE_PROFILES from './profile-data.json';
+
+
 // const msgElem = <h1 id="DawgDate" className='title'>Title</h1>
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<BrowserRouter>
-		<App />
+		<App profileData={SAMPLE_PROFILES} />
 	</BrowserRouter>
 );
