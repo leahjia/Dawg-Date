@@ -18,12 +18,14 @@ function ProfileCard(props) {
     }(profileData.birthdate);
     
     let heartColor = 'grey';
+
     if (currentUser.connections.includes(profileData.UWNetId)) {
       heartColor = 'red';
     }
 
     const handleConnect = function (event) {
-      
+      const user = event.target.user;
+        
     }
   
     return (
@@ -34,7 +36,7 @@ function ProfileCard(props) {
           <h2 className="profile-name">{profileData.name} | {userAge} ({profileData.pronouns})</h2>
         </Link>
         <p className="profile-description">{profileData.bio}</p>
-        <button className="btn like-button" onClick={handleConnect}>
+        <button user={profileData.UWNetId} className="btn like-button" onClick={handleConnect}>
           <span className="material-icons" style={{ color: heartColor }}>favorite_border</span>
         </button>
       </div>
@@ -48,6 +50,7 @@ function ProfileCard(props) {
         <ProfileCard 
           profileData={profileObj}
           currentUser={props.currentUser} 
+          handleConnectionCallBack={props.handleConnectionCallback}
           key={profileObj.UWNetId}
         />
       )

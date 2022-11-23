@@ -4,11 +4,17 @@ import { Link } from 'react-router-dom';
 export default function NavBar(props) {
 
     let navLinks;
+    let hardCodedUser = {"UWNetId": "person1", "name": "Wayne", "gender": "Male", "pronouns": "he/him", "bio": "bio placeholder", "birthdate": "2001-05-23", "hometown": "Bellevue, WA", "major": "Biology", "profile-pic": "person-1.avif", "connections": ["person2", "person3"], "img": "/img/person-1.avif"};
+
+    const handleLogin = function () {
+      props.handleLoginCallback(hardCodedUser)
+      props.setConnectionsCallback(hardCodedUser.connections)
+    }
 
     if (props.variant === 'landing') {
         navLinks = (
           <ul>
-            <li><Link to="/home">LOGIN</Link></li>
+            <li onClick={handleLogin}><Link to="/home">LOGIN</Link></li>
           </ul>
         )
     } else {
