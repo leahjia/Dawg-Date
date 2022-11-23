@@ -1,5 +1,4 @@
 import React from "react";
-import { Links } from 'react-router-dom';
 
 import { ProfileList } from "./ProfileList";
 import NavBar from "./NavBar";
@@ -18,8 +17,8 @@ export default function ConnectionsPage(props) {
 	return (
 		<div>
 			<header className="navbar-bg">
-                <NavBar/>
-            </header>
+        <NavBar/>
+      </header>
 			<main>
 				<div className="profile-list">
 					<h1>My Connections</h1>
