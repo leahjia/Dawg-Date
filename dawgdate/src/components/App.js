@@ -7,9 +7,6 @@ import SelfProfilePage from './SelfProfilePage.js';
 import OtherProfilePage from './OtherProfilePage.js';
 import Footer from './Footer.js';
 
-import USERS from '../profile-data.json';
-
-
 export default function App(props) {
   return (
     <div>
