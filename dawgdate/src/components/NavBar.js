@@ -1,21 +1,36 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 export default function NavBar(props) {
+
+	let navLinks;
+
+	if (props.variant === 'landing') {
+		navLinks = (
+			<ul>
+				<li><Link to="/home">LOGIN</Link></li>
+			</ul>
+		)
+	} else {
+		navLinks = (
+			<ul>
+				<li><Link to="/home">HOME</Link></li>
+				<li><Link to="">CONNECTIONS</Link></li>
+				<li><Link to="">CHAT</Link></li>
+				<li><Link to="/profile">MY PROFILE</Link></li>
+			</ul>
+		)
+	}
+
     return (
         <nav>
             <div className="navbar">
-                <a href="index.html">
-                    {/* <img src="img/logo.png" className="logo"> */}
+                <Link to="/home">
+                    <img src="img/logo.png" className="logo" />
                     <h1 className="name">DawgDate</h1>
-                </a>
-                <ul>
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">CONNECTIONS</a></li>
-                    <li><a href="">CHAT</a></li>
-                    <li><a href="personalprofile.html">MY PROFILE</a></li>
-                </ul>
+                </Link>
+                {navLinks}
             </div>
         </nav>
     )
-
 }

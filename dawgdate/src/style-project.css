@@ -264,7 +264,7 @@ section.profile-info p {
     background-image: url('../public/img/bg-landing.jpg');
     background-position: bottom;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);
 }
 
