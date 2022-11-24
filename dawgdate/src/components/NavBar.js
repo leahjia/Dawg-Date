@@ -32,10 +32,8 @@ export default function NavBar(props) {
     <nav>
       <div className="navbar">
         <Link to="/home">
-          {/* <div className="container"> */}
-            <img src="img/logo.png" alt="logo" className="logo" />
-            <h1 style={{display: 'inline', marginLeft: '1rem'}}className="name">DawgDate</h1>
-          {/* </div> */}
+          <img src="/img/logo.png" alt="logo" className="logo" />
+          <h1 style={{display: 'inline', marginLeft: '1rem'}}className="name">DawgDate</h1>
         </Link>
         {navLinks}
       </div>

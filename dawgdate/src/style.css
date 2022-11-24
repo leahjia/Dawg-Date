@@ -195,7 +195,7 @@ footer {
 /* style for the search bar on homepage */
 .search-bar input {
     background-color: transparent;
-    width: 40rem;
+    width: 20rem;
     border: .2rem solid #5c13c9;
     border-radius: 2rem;
     padding: 1rem 1rem;
@@ -305,7 +305,7 @@ footer {
     }
 
     .welcome {
-        font-size: 5rem;
+        font-size: 4rem;
     }
 
     .about-container {
@@ -315,6 +315,10 @@ footer {
     header {
         height: 20vh;
     }
+    .search-bar input {
+        width: 30rem;
+    }
+    
 }
 
 @media (min-width: 1080px) {
@@ -341,4 +345,9 @@ footer {
     header {
         height: 25vh;
     }
+
+    .search-bar input {
+        width: 40rem;
+    }
+    
 }
