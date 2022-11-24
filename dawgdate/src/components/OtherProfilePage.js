@@ -6,16 +6,15 @@ import NavBar from "./NavBar.js";
 
 export default function OtherProfilePage(props) {
 	const personNetId = useParams().UWNetId;
-	console.log(personNetId);
 
 	const person = props.profileData.filter((userProfile) => {
+		console.log(personNetId)
 		if (personNetId === userProfile.UWNetId) {
 			return true;
 		} else {
 			return false;
 		}
 	})[0];
-	console.log(person); 
 
 	return (
 		<div>
@@ -31,9 +30,9 @@ export default function OtherProfilePage(props) {
 								<a href="#" className="btn btn-outline-dark btn-sm btn-block">Edit profile</a>
 							</div>{" "}
 							<div className="media-body mb-5 text-white">
-								<h4 className="mt-0 mb-0">Wayne Little</h4>
+							<h4 className="mt-0 mb-0">{person.name}</h4>
 								<p className="small mb-4">
-									<i className="fas fa-map-marker-alt mr-2"></i>Seattle
+									<i className="fas fa-map-marker-alt mr-2"></i>{}
 								</p>
 							</div>
 						</div>
@@ -47,13 +46,13 @@ export default function OtherProfilePage(props) {
 								</small>
 							</li>
 							<li className="list-inline-item">
-								<h5 className="font-weight-bold mb-0 d-block">30</h5>
+								<h5 className="font-weight-bold mb-0 d-block">{person.connections.length}</h5>
 								<small className="text-muted">
 									<i className="fas fa-user mr-1"></i>Connections
 								</small>
 							</li>
 							<li className="list-inline-item">
-								<h5 className="font-weight-bold mb-0 d-block">He/Him</h5>
+								<h5 className="font-weight-bold mb-0 d-block">{ person.pronouns}</h5>
 								<small className="text-muted">
 									<i className="fas fa-user mr-1"></i>Pronouns
 								</small>
@@ -62,21 +61,15 @@ export default function OtherProfilePage(props) {
 					</div>
 					<div className="px-4 py-3">
 						<h5 className="mb-0">About</h5>
-						<div className="p-4 rounded shadow-sm bg-light">
-							<p className="font-italic mb-0">24 Years Old</p>
-							<p className="font-italic mb-0">
-								Masters In Mechanical Engineering
-							</p>
-							<p className="font-italic mb-0">Gamer | Guitarist</p>
-							<p className="font-italic mb-0">Interested in Women</p>
-						</div>
+                        <div className="p-4 rounded shadow-sm bg-light">
+                            <p className="font-italic mb-0">{person.birthdate}</p>
+                            <p className="font-italic mb-0">{person.major}</p>
+                        </div>
 						<div className="mb-0">
 							<h5>Bio</h5>
-							<p className="font-italic mb-0">Tall Enough For You</p>
-							<p className="font-italic mb-0">
-								Looking to meet someone to go on hikes with and take the
-								award for cringest couple.
-							</p>
+                            <p className="font-italic mb-0">
+                                {person.bio}
+                            </p>
 						</div>
 						<div className="py-4 px-4">
 							<div className="d-flex align-items-center justify-content-between mb-3">

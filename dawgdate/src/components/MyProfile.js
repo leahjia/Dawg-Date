@@ -1,7 +1,7 @@
 import React from "react";
 
 import NavBar from "./NavBar";
-import OtherProfilePage from "./OtherProfilePage";
+import SelfProfilePage from "./SelfProfilePage";
 
 export default function MyProfile(props) {
 
@@ -13,7 +13,7 @@ export default function MyProfile(props) {
 			<main>
 				<div className="profile-list">
 					<h1>My Profile</h1>
-                    <OtherProfilePage profileData={props.profileData} />
+                    <SelfProfilePage profileData={ props.profileData} />
 				</div>
 			</main>
 		</div>
