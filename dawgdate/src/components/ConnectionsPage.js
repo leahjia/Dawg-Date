@@ -1,5 +1,4 @@
 import React from "react";
-import { Navigate } from 'react-router-dom';
 
 import { ProfileList } from "./ProfileList";
 import NavBar from "./NavBar";
