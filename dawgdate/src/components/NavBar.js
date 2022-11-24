@@ -32,7 +32,7 @@ export default function NavBar(props) {
     <nav>
       <div className="navbar">
         <Link to="/home">
-          <img src="img/logo.png" className="logo" />
+          <img src="img/logo.png" alt="logo" className="logo" />
           <h1 className="name">DawgDate</h1>
         </Link>
         {navLinks}

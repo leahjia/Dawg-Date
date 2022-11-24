@@ -3,13 +3,22 @@ import React, { useState } from "react";
 export default function SelfProfilePage(props) {
     const person = props.currentUser;
 
+    const selfImg = ["img/engineering-online-mechanical-29Apr2019.jpeg", "img/w-day.jpeg", "img/gaming_setup.avif", "img/man_singing.jpg"]
+    const photoElems = selfImg.map((image, index) => {
+        return (
+            <div key={index} className="col-lg-6 mb-2 pr-lg-1">
+                <img src={image} alt={index} className="img-fluid rounded shadow-sm" />
+            </div>
+        )
+    })
+
     return (
         <div>
             <div className="snippet-body">
                 <div className="row py-5 px-4"><div className="col-md-5 mx-auto"><div className="bg-white shadow rounded overflow-hidden">
                     <div className="px-4 pt-0 pb-4 cover"><div className="media align-items-end profile-head">
                         <div className="profile mr-3">
-                            <img src="img/person-1.avif" alt="..." width="130" className="rounded mb-2 img-thumbnail" />
+                            <img src={person.img} alt={person.name} width="130" className="rounded mb-2 img-thumbnail" />
                             <a href="#"
                                 className="btn btn-outline-dark btn-sm btn-block"
                             >Edit profile</a>
@@ -59,36 +68,7 @@ export default function SelfProfilePage(props) {
                                 <h5 className="mb-0">Photos</h5>
                                 <a href="#" className="btn btn-link text-muted">Show all</a>
                             </div>
-                            <div className="row">
-                                <div className="col-lg-6 mb-2 pr-lg-1">
-                                    <img
-                                        src="img/engineering-online-mechanical-29Apr2019.jpeg"
-                                        alt=""
-                                        className="img-fluid rounded shadow-sm"
-                                    />
-                                </div>
-                                <div className="col-lg-6 mb-2 pl-lg-1">
-                                    <img
-                                        src="img/w-day.jpeg"
-                                        alt=""
-                                        className="img-fluid rounded shadow-sm"
-                                    />
-                                </div>
-                                <div className="col-lg-6 pr-lg-1 mb-2">
-                                    <img
-                                        src="img/gaming_setup.avif"
-                                        alt=""
-                                        className="img-fluid rounded shadow-sm"
-                                    />
-                                </div>
-                                <div className="col-lg-6 pl-lg-1">
-                                    <img
-                                        src="img/man_singing.jpg"
-                                        alt=""
-                                        className="img-fluid rounded shadow-sm"
-                                    />
-                                </div>
-                            </div>
+                            <div className="row">{photoElems}</div>
                         </div>
                     </div>
                 </div>
