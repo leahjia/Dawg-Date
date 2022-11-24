@@ -8,7 +8,7 @@ export default function NavBar(props) {
 
     const handleLogin = function () {
       props.handleLoginCallback(hardCodedUser)
-      props.setConnectionsCallback(hardCodedUser.connections)
+      props.handleConnectionsCallback(hardCodedUser.connections)
     }
 
     if (props.variant === 'landing') {

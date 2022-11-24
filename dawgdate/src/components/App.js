@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route, Routes, Outlet } from 'react-router-dom';
+import { Navigate, Route, Routes, Outlet } from 'react-router-dom';
 
 import LandingPage from './LandingPage.js';
 import HomePage from './HomePage.js';
@@ -23,20 +23,27 @@ export default function App(props) {
     setCurrentUserConnections(newConnections);
   }
 
-  const loggedIn = currentUser != null;
-
   return (
     <div>
       <Routes>
-        <Route index element={<LandingPage handleLoginCallback={setCurrentUser}/>} />
-        <Route path="/home" element={<HomePage profileData={props.profileData} currentUser={currentUser} handleConnectionCallBack={setCurrentUser}/>} />
-        <Route path="/profile" element={<MyProfile currentUser={currentUser}/>} />
-        <Route path="/connections" element={<ConnectionsPage profileData={props.profileData} currentUser={currentUser} handleConnectionCallBack={handleConnection}/>} />
-        <Route path="/:UWNetId" element={<OtherProfilePage profileData={props.profileData} currentUser={currentUser}/>} />
+        <Route index element={<LandingPage handleLoginCallback={setCurrentUser} handleConnectionsCallback={setCurrentUserConnections} />} />
+        <Route element={<RequireAuth currentUser={currentUser}/>}>
+          <Route path="/home" element={<HomePage profileData={props.profileData} currentUser={currentUser} handleConnectionCallBack={setCurrentUser}/>} />
+          <Route path="/profile" element={<MyProfile currentUser={currentUser}/>} />
+          <Route path="/connections" element={<ConnectionsPage profileData={props.profileData} currentUser={currentUser} handleConnectionCallBack={handleConnection}/>} />
+          <Route path="/user/:UWNetId" element={<OtherProfilePage profileData={props.profileData} currentUser={currentUser}/>} />
+        </Route>
       </Routes>
       <Footer/>
     </div>
-
   )
 
+}
+
+function RequireAuth(props) {
+  if(props.currentUser === null) {
+    return <Navigate to="/" />
+  } else {
+    return <Outlet />
+  }
 }
