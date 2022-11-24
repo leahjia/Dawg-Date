@@ -23,7 +23,8 @@ export default function Search(props) {
     })
 
     const handleChange = (event) => {
-        props.applySearchCallbask(event.target.value)
+        props.applySearchCallback(event.target.value)
+
     }
 
     return (
