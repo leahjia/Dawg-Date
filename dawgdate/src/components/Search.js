@@ -24,23 +24,24 @@ export default function Search(props) {
 
     const handleChange = (event) => {
         props.applySearchCallback(event.target.value)
-
     }
 
     return (
-        <section className="search-container">
-
-            <form className="search-bar">
-                <input type="search" id="search-input" placeholder="Search profile names here" onChange={handleChange} />
-            </form>
-            <div className="filter-group">
-                <select id="majorSelect" className="filter" aria-label="major-filter" value={select} onChange={handleSelect} >
-                    <option value="" >Major</option>{majorElems}</select>
-                <select id="genderSelect" className="filter" aria-label="gender-filter" value={select} onChange={handleSelect} >
-                    <option value="" >Gender</option>{genderElems}</select>
-                <select id="hometownSelect" className="filter" aria-label="hometown-filter" value={select} onChange={handleSelect}>
-                    <option value="" >Area</option>{hometownElems}</select>
-            </div>
-        </section>
+      <section className="search-container">
+        <form className="search-bar">
+          <input type="search" id="search-input" placeholder="Search profile names here" onChange={handleChange} />
+        </form>
+        <div className="filter-group">
+          <select id="majorSelect" className="filter" aria-label="major-filter" value={select} onChange={handleSelect} >
+            <option value="" >Major</option>{majorElems}
+          </select>
+          <select id="genderSelect" className="filter" aria-label="gender-filter" value={select} onChange={handleSelect} >
+            <option value="" >Gender</option>{genderElems}
+          </select>
+          <select id="hometownSelect" className="filter" aria-label="hometown-filter" value={select} onChange={handleSelect}>
+            <option value="" >Area</option>{hometownElems}
+          </select>
+        </div>
+      </section>
     )
 }
