@@ -14,16 +14,12 @@ a {
 }
 
 header {
-    min-height: 10vh;
+    min-height: 12rem;
     background-position: center;
     background-size: cover;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 5rem;
+    padding-right: 5rem;
 
-}
-
-main {
-    min-height: 90vh;
 }
 
 .logo {
@@ -31,7 +27,7 @@ main {
 }
 
 nav img {
-    width: 60px;
+    width: 4rem;
 }
 
 .navbar {
@@ -269,7 +265,7 @@ section.profile-info p {
     background-position: bottom;
     background-size: cover;
     height: 100vh;
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3);
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .3);
 }
 
 .welcome {
@@ -285,15 +281,15 @@ section.profile-info p {
     width: fit-content;
     padding: 10px 30px;
     margin: auto;
-    background-image: linear-gradient(to right, #5c13c9,#9874ce);
+    background-image: linear-gradient(to right, #5c13c9, #9874ce);
     color: white;
     border-radius: 40px;
     font-weight: bold;
 }
 
 .create-account:hover {
-    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
-    color: rgba(255,255,255,.8);
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .2);
+    color: rgba(255, 255, 255, .8);
     border-width: 10px;
     border-color: white;
 }
@@ -337,9 +333,14 @@ section.profile-info p {
 }
 
 @media (min-width: 768px) {
+    .navbar {
+        padding: 20px;
+    }
+
     .profile {
         flex-basis: 22%;
     }
+
     .profile-description {
         display: block;
     }
@@ -347,9 +348,11 @@ section.profile-info p {
     .welcome {
         font-size: 6rem;
     }
+
     .about-container {
         flex-direction: row;
     }
+
     header {
         height: 20vh;
     }
