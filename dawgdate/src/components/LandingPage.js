@@ -17,13 +17,13 @@ export default function LandingPage(props) {
         <div className="about-container">
           <div className="about-card">
             <div className="card-image-bg">
-              <img src="img/lock.png" className="about-image" />
+              <img src="img/lock.png" className="about-image" alt="lock"/>
             </div>
             <p>DawgDate provides a secure platform exclusively for University of Washington students to safely meet eachother.</p>
           </div>
           <div className="about-card">
             <div className="card-image-bg">
-              <img src="img/search.png" className="about-image" />
+              <img src="img/search.png" className="about-image" alt="magnifying glass"/>
             </div>
             <p>DawgDate is a platform that focuses on <em>you</em>. Save time and find others based on your own preferences.</p>
           </div>
