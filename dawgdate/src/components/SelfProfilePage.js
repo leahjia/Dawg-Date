@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 
 export default function SelfProfilePage(props) {
-    const personNetId = "person1";
-
-    const person = props.profileData.filter((userProfile) => {
-        console.log(personNetId)
-        if (personNetId == userProfile.UWNetId) {
-            return true;
-        } else {
-            return false;
-        }
-    })[0];
+    const person = props.currentUser;
 
     return (
         <div>

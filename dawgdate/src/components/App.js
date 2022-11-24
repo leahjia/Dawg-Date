@@ -41,7 +41,7 @@ export default function App(props) {
 }
 
 function RequireAuth(props) {
-  if(props.currentUser === null) {
+  if(props.currentUser == null) {
     return <Navigate to="/" />
   } else {
     return <Outlet />
