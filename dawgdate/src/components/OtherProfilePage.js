@@ -27,7 +27,6 @@ export default function OtherProfilePage(props) {
 					<div className="px-4 pt-0 pb-4 cover"><div className="media align-items-end profile-head">
 						<div className="profile mr-3">
 							<img src={person.img} alt="..." width="130" className="rounded mb-2 img-thumbnail" />
-							<a href="#" className="btn btn-outline-dark btn-sm btn-block">Edit profile</a>
 						</div>{" "}
 						<div className="media-body mb-5 text-white">
 							<h4 className="mt-0 mb-0">{person.name}</h4>
