@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 function ProfileCard(props) {
 
-  const currentUser = props.currentUser;
   const profileData = props.profileData;
   const userAge = function (date) {
     const today = new Date();
@@ -17,8 +16,6 @@ function ProfileCard(props) {
     return age;
   }(profileData.birthdate);
 
-  console.log(props.currentUserConnections);
-
   let heartColor = 'grey';
   if (props.currentUserConnections.includes(profileData.UWNetId)) {
     heartColor = 'red';
@@ -26,7 +23,6 @@ function ProfileCard(props) {
 
   const handleConnect = function (event) {
     const userString = event.currentTarget.getAttribute('user');
-    console.log(userString);
     props.handleConnectionCallback(userString);
   }
 

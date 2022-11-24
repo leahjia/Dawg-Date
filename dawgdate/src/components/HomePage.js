@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Navigate } from 'react-router-dom';
 import NavBar from './NavBar.js';
 import Search from './Search.js';
 import { ProfileList } from './ProfileList.js';
@@ -14,27 +13,28 @@ export default function HomePage(props) {
     setCategory(cate)
   }
 
-  const displayedData = props.profileData.filter(t => {
+  let displayedData = props.profileData.filter(t => {
     if (currentUser.UWNetId === t.UWNetId || props.currentUserConnections.includes(t.UWNetId)) {
         return false;
     } else if (input !== '') {
-        return input == t.name
-    } else if (select == '') {
+        return input === t.name
+    } else if (select === '') {
         return true;
     } else {
-        if (category == "majorSelect")
-            return t.major == select
-        else if (category == "genderSelect")
-            return t.gender == select
-        else if (category == "hometownSelect")
-            return t.hometown == select
+        if (category === "majorSelect")
+            return t.major === select
+        else if (category === "genderSelect")
+            return t.gender === select
+        else if (category === "hometownSelect")
+            return t.hometown === select
     }
+    return null;
   })
 
     function applySearch(i) {
       setInput(i)
       displayedData = props.profileData.filter(t => {
-          return i == t.name
+          return i === t.name
       })
     }
 

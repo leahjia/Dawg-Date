@@ -1,10 +1,9 @@
 import React from "react";
 
-import { ProfileList } from "./ProfileList";
-import NavBar from "./NavBar";
+import { ProfileList } from "./ProfileList.js";
+import NavBar from "./NavBar.js";
 
 export default function ConnectionsPage(props) {
-	const currentUser = props.currentUser;
 
 	const displayedData = props.profileData.filter((userProfile) => {
 		if (props.currentUserConnections.includes(userProfile.UWNetId)) {
