@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function Footer(props) {
 
-	return(
-		<footer>
+  return (
+    <footer>
       <div className="footer-info">
         <h3>&copy; DawgDate</h3>
         <p>DawgDate creates a better dating experience on campus for University of Washington students.</p>
@@ -23,6 +23,6 @@ export default function Footer(props) {
       <div className="copyright">
         <p>COPYRIGHT &copy;2022. DESIGNED BY <i>INFO 340 GROUP BB1</i></p>
       </div>
-		</footer>
-	)
+    </footer>
+  )
 }
