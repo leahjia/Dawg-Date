@@ -16,7 +16,15 @@ a {
     text-decoration: none;
 }
 
-/* styles of header */
+/* general body styling */
+body {
+    min-height: 100vh;
+    width: 100%;
+    background-color: whitesmoke;
+    background-size: cover;
+}
+
+/* styles of NavBar/header */
 header {
     min-height: 12rem;
     background-position: center;
@@ -26,13 +34,16 @@ header {
 
 }
 
-/* action for logo when moving pointer to it */
 .logo {
     cursor: pointer;
 }
 
 nav img {
     width: 4rem;
+}
+
+.navbar-bg {
+    background-image: linear-gradient(#33114999, #b4b7d14d), url('../public/img/bg-header.jpeg');
 }
 
 .navbar {
@@ -76,6 +87,7 @@ nav img {
     flex-grow: 1;
 }
 
+/* styling for ProfileList */
 .profile-list {
     width: 90%;
     margin: auto;
@@ -106,17 +118,7 @@ nav img {
     display: none;
 }
 
-figcaption {
-    font-size: .5rem;
-}
-
-body {
-    min-height: 100vh;
-    width: 100%;
-    background-color: whitesmoke;
-    background-size: cover;
-}
-
+/* style for MyProfile */
 .cover {
     background-image: url(../public/img/mgh_interior.jpeg.crdownload);
     background-size: cover;
@@ -127,6 +129,7 @@ body {
     transform: translateY(5rem)
 }
 
+/* style for Footer */
 .fa {
     padding: 1rem;
     width: 4rem;
@@ -186,13 +189,11 @@ footer {
     font-size: .9rem;
 }
 
-/* style for search bar container */
+/* style for search/filter on HomePage */
 .search-container {
     text-align: center;
     margin: 1rem;
 }
-
-/* style for the search bar on homepage */
 .search-bar input {
     background-color: transparent;
     width: 20rem;
@@ -201,7 +202,6 @@ footer {
     padding: 1rem 1rem;
 }
 
-/* style for filters on homepage */
 .filter {
     border: .2rem solid #9874ce;
     margin: 1rem;
@@ -212,10 +212,7 @@ footer {
     cursor: pointer;
 }
 
-.navbar-bg {
-    background-image: linear-gradient(#33114999, #b4b7d14d), url('../public/img/bg-header.jpeg');
-}
-
+/* style for LandingPage */
 .landing {
     padding: 2rem;
     background-image: url('../public/img/bg-landing.jpg');
@@ -253,6 +250,7 @@ footer {
     border-color: white;
 }
 
+/* styling for about section on LandingPage */
 .about {
     margin: 2rem 2rem;
     text-align: center;
@@ -291,6 +289,8 @@ footer {
     padding: 1rem;
 }
 
+
+/* media queries for larger screens */
 @media (min-width: 768px) {
     .navbar {
         padding: 2rem;
@@ -321,6 +321,7 @@ footer {
     
 }
 
+/* media queries for even larger screens */
 @media (min-width: 1080px) {
     .navbar {
         padding: 25px;

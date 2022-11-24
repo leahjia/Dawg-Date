@@ -61,11 +61,11 @@ export default function SelfProfilePage(props) {
                       <h5 className="mb-0">Photos</h5>
                       <a href="#" className="btn btn-link text-muted">Show all</a>
                     </div>
-                      <div className="row">
-                        {photoElems}
-                      </div>
+                    <div className="row">
+                      {photoElems}
                     </div>
                   </div>
+                </div>
               </div>
             </div>
           </div>
