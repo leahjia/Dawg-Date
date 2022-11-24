@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function SelfProfilePage(props) {
     const personNetId = "person1";
@@ -19,7 +19,9 @@ export default function SelfProfilePage(props) {
                     <div className="px-4 pt-0 pb-4 cover"><div className="media align-items-end profile-head">
                         <div className="profile mr-3">
                             <img src="img/person-1.avif" alt="..." width="130" className="rounded mb-2 img-thumbnail" />
-                            <a href="#" className="btn btn-outline-dark btn-sm btn-block">Edit profile</a>
+                            <a href="#"
+                                className="btn btn-outline-dark btn-sm btn-block"
+                            >Edit profile</a>
                         </div>{" "}
                         <div className="media-body mb-5 text-white">
                             <h4 className="mt-0 mb-0">{person.name}</h4>
@@ -59,16 +61,12 @@ export default function SelfProfilePage(props) {
                         </div>
                         <div className="mb-0">
                             <h5>Bio</h5>
-                            <p className="font-italic mb-0">
-                                {person.bio}
-                            </p>
+                            <p className="font-italic mb-0">{person.bio}</p>
                         </div>
                         <div className="py-4 px-4">
                             <div className="d-flex align-items-center justify-content-between mb-3">
                                 <h5 className="mb-0">Photos</h5>
-                                <a href="#" className="btn btn-link text-muted">
-                                    Show all
-                                </a>
+                                <a href="#" className="btn btn-link text-muted">Show all</a>
                             </div>
                             <div className="row">
                                 <div className="col-lg-6 mb-2 pr-lg-1">

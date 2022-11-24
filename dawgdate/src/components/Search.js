@@ -26,10 +26,10 @@ export default function Search(props) {
     return (
         <section className="search-container">
 
-            <div className="search-bar">
+            <form className="search-bar">
                 <input type="search" id="search-input" placeholder="Search profile names here" />
                 <button className="search-button" aria-label="Search">Search</button>
-            </div>
+            </form>
             <div className="filter-group">
                 <select id="majorSelect" className="filter" aria-label="major-filter" value={select} onChange={handleSelect} >
                     <option value="" >Major</option>{majorElems}</select>
