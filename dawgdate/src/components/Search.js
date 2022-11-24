@@ -22,13 +22,15 @@ export default function Search(props) {
         return <option key={hometown} value={hometown}>{hometown}</option>
     })
 
+    const handleChange = (event) => {
+        props.applySearchCallbask(event.target.value)
+    }
 
     return (
         <section className="search-container">
 
             <form className="search-bar">
-                <input type="search" id="search-input" placeholder="Search profile names here" />
-                <button className="search-button" aria-label="Search">Search</button>
+                <input type="search" id="search-input" placeholder="Search profile names here" onChange={handleChange} />
             </form>
             <div className="filter-group">
                 <select id="majorSelect" className="filter" aria-label="major-filter" value={select} onChange={handleSelect} >

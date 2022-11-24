@@ -6,15 +6,19 @@ import { ProfileList } from './ProfileList.js';
 
 export default function HomePage(props) {
     const currentUser = props.currentUser;
+    const [input, setInput] = useState('')
     const [select, setSelect] = useState('')
     const [category, setCategory] = useState('')
     function applyFilter(val, cate) {
         setSelect(val)
         setCategory(cate)
     }
+
     const displayedData = props.profileData.filter(t => {
         if (currentUser.UWNetId === t.UWNetId || currentUser.connections.includes(t.UWNetId)) {
             return false;
+        } else if (input !== '') {
+            return input == t.name
         } else if (select == '') {
             return true;
         } else {
@@ -27,19 +31,26 @@ export default function HomePage(props) {
         }
     })
 
+    function applySearch(i) {
+        setInput(i)
+        displayedData = props.profileData.filter(t => {
+            return i == t.name
+        })
+    }
+
     return (
-      <div>
-        <header className="navbar-bg">
-          <NavBar />
-        </header>
-        <main>
-          <Search profileData={props.profileData} applyFilterCallback={applyFilter} />
-				  <div className="profile-list">
-				  	<h1>People You Might Know</h1>
-				  	<ProfileList profileData={displayedData} currentUser={props.currentUser} handleConnectionCallBack={props.handleConnectionCallback}/>
-          </div>
-        </main>
-      </div>
+        <div>
+            <header className="navbar-bg">
+                <NavBar />
+            </header>
+            <main>
+                <Search profileData={props.profileData} applyFilterCallback={applyFilter} applySearchCallbask={applySearch} />
+                <div className="profile-list">
+                    <h1>People You Might Know</h1>
+                    <ProfileList profileData={displayedData} currentUser={props.currentUser} handleConnectionCallBack={props.handleConnectionCallback} />
+                </div>
+            </main>
+        </div>
     )
 
 }
