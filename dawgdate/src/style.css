@@ -319,7 +319,7 @@ footer {
 
 @media (min-width: 1080px) {
     .navbar {
-        padding: 25px;
+        padding: 4rem;
     }
 
     .profile {
