@@ -289,6 +289,10 @@ footer {
     padding: 1rem;
 }
 
+.col-md-5 {
+    flex: 0 0 auto;
+    width: auto;
+}
 
 /* media queries for larger screens */
 @media (min-width: 768px) {
