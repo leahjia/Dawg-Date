@@ -32,7 +32,7 @@ export default function OtherProfilePage(props) {
 							<div className="media-body mb-5 text-white">
 							<h4 className="mt-0 mb-0">{person.name}</h4>
 								<p className="small mb-4">
-									<i className="fas fa-map-marker-alt mr-2"></i>Seattle
+									<i className="fas fa-map-marker-alt mr-2"></i>{}
 								</p>
 							</div>
 						</div>
@@ -61,21 +61,15 @@ export default function OtherProfilePage(props) {
 					</div>
 					<div className="px-4 py-3">
 						<h5 className="mb-0">About</h5>
-						<div className="p-4 rounded shadow-sm bg-light">
-							<p className="font-italic mb-0">24 Years Old</p>
-							<p className="font-italic mb-0">
-								Masters In Mechanical Engineering
-							</p>
-							<p className="font-italic mb-0">Gamer | Guitarist</p>
-							<p className="font-italic mb-0">Interested in Women</p>
-						</div>
+                        <div className="p-4 rounded shadow-sm bg-light">
+                            <p className="font-italic mb-0">{person.birthdate}</p>
+                            <p className="font-italic mb-0">{person.major}</p>
+                        </div>
 						<div className="mb-0">
 							<h5>Bio</h5>
-							<p className="font-italic mb-0">Tall Enough For You</p>
-							<p className="font-italic mb-0">
-								Looking to meet someone to go on hikes with and take the
-								award for cringest couple.
-							</p>
+                            <p className="font-italic mb-0">
+                                {person.bio}
+                            </p>
 						</div>
 						<div className="py-4 px-4">
 							<div className="d-flex align-items-center justify-content-between mb-3">
