@@ -28,12 +28,7 @@ export default function OtherProfilePage(props) {
               <div className="px-4 pt-0 pb-4 cover">
                 <div className="media align-items-end profile-head">
                   <div className="profile mr-3">
-                    <img
-                      src={person.img}
-                      alt={person.name}
-                      width="130px"
-                      className="rounded mb-2 img-thumbnail"
-                    />
+                    <img src={person.img} alt={person.name} width="130px" className="rounded mb-2 img-thumbnail"/>
                   </div>{" "}
                   <div className="media-body mb-5 text-white">
                     <h4 className="mt-0 mb-0">{person.name}</h4>
@@ -48,15 +43,11 @@ export default function OtherProfilePage(props) {
                     <small className="text-muted">Photos</small>
                   </li>
                   <li className="list-inline-item">
-                    <h5 className="font-weight-bold mb-0 d-block">
-                      {person.connections.length}
-                    </h5>
+                    <h5 className="font-weight-bold mb-0 d-block">{person.connections.length}</h5>
                     <small className="text-muted">Connections</small>
                   </li>
                   <li className="list-inline-item">
-                    <h5 className="font-weight-bold mb-0 d-block">
-                      {person.pronouns}
-                    </h5>
+                    <h5 className="font-weight-bold mb-0 d-block">{person.pronouns}</h5>
                     <small className="text-muted">Pronouns</small>
                   </li>
                 </ul>
@@ -64,9 +55,7 @@ export default function OtherProfilePage(props) {
               <div className="px-4 py-3">
                 <h5 className="mb-0">About</h5>
                 <div className="p-4 rounded shadow-sm bg-light">
-                  <p className="font-italic mb-0">
-                    Birthday: {person.birthdate}
-                  </p>
+                  <p className="font-italic mb-0">Birthday: {person.birthdate}</p>
                   <p className="font-italic mb-0">Major: {person.major}</p>
                 </div>
                 <div className="mb-0">
@@ -76,9 +65,7 @@ export default function OtherProfilePage(props) {
                 <div className="py-4 px-4">
                   <div className="d-flex align-items-center justify-content-between mb-3">
                     <h5 className="mb-0">Photos</h5>
-                    <a href="#" className="btn btn-link text-muted">
-                      Show all
-                    </a>
+                    <a href="#" className="btn btn-link text-muted">Show all</a>
                   </div>
                 </div>
               </div>

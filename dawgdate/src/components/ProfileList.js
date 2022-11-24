@@ -34,12 +34,11 @@ function ProfileCard(props) {
     <div className="profile">
       <Link to={"/user/" + profileData.UWNetId}>
         <img src={profileData.img} alt={profileData.name} />
-        <figcaption>Image from Unsplash</figcaption>
         <h2 className="profile-name">{profileData.name} | {userAge} ({profileData.pronouns})</h2>
       </Link>
       <p className="profile-description">{profileData.bio}</p>
       <button user={profileData.UWNetId} className="btn like-button" onClick={handleConnect}>
-        <span className="material-icons" style={{ color: heartColor }}>favorite_border</span>
+        <span className="material-icons" style={{ color: heartColor }}>favorite</span>
       </button>
     </div>
   )
