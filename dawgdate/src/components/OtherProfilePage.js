@@ -26,13 +26,11 @@ export default function OtherProfilePage(props) {
 				<div className="row py-5 px-4"><div className="col-md-5 mx-auto"><div className="bg-white shadow rounded overflow-hidden">
 					<div className="px-4 pt-0 pb-4 cover"><div className="media align-items-end profile-head">
 						<div className="profile mr-3">
-							<img src={person.img} alt="..." width="130px" className="rounded mb-2 img-thumbnail" />
+							<img src={person.img} alt={person.name} width="130px" className="rounded mb-2 img-thumbnail" />
 						</div>{" "}
 						<div className="media-body mb-5 text-white">
 							<h4 className="mt-0 mb-0">{person.name}</h4>
-							<p className="small mb-4">
-								<i className="fas fa-map-marker-alt mr-2"></i>{ }
-							</p>
+							<p className="small mb-4"></p>
 						</div>
 					</div>
 					</div>
@@ -40,21 +38,15 @@ export default function OtherProfilePage(props) {
 						<ul className="list-inline mb-0">
 							<li className="list-inline-item">
 								<h5 className="font-weight-bold mb-0 d-block">4</h5>
-								<small className="text-muted">
-									<i className="fas fa-image mr-1"></i>Photos
-								</small>
+								<small className="text-muted">Photos</small>
 							</li>
 							<li className="list-inline-item">
 								<h5 className="font-weight-bold mb-0 d-block">{person.connections.length}</h5>
-								<small className="text-muted">
-									<i className="fas fa-user mr-1"></i>Connections
-								</small>
+								<small className="text-muted">Connections</small>
 							</li>
 							<li className="list-inline-item">
 								<h5 className="font-weight-bold mb-0 d-block">{person.pronouns}</h5>
-								<small className="text-muted">
-									<i className="fas fa-user mr-1"></i>Pronouns
-								</small>
+								<small className="text-muted">Pronouns</small>
 							</li>
 						</ul>
 					</div>

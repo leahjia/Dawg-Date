@@ -25,9 +25,7 @@ export default function SelfProfilePage(props) {
                         </div>{" "}
                         <div className="media-body mb-5 text-white">
                             <h4 className="mt-0 mb-0">{person.name}</h4>
-                            <p className="small mb-4">
-                                <i className="fas fa-map-marker-alt mr-2"></i>{person.hometown}
-                            </p>
+                            <p className="small mb-4">{person.hometown}</p>
                         </div>
                     </div>
                     </div>
@@ -35,21 +33,15 @@ export default function SelfProfilePage(props) {
                         <ul className="list-inline mb-0">
                             <li className="list-inline-item">
                                 <h5 className="font-weight-bold mb-0 d-block">4</h5>
-                                <small className="text-muted">
-                                    <i className="fas fa-image mr-1"></i>Photos
-                                </small>
+                                <small className="text-muted">Photos</small>
                             </li>
                             <li className="list-inline-item">
                                 <h5 className="font-weight-bold mb-0 d-block">{person.connections.length}</h5>
-                                <small className="text-muted">
-                                    <i className="fas fa-user mr-1"></i>Connections
-                                </small>
+                                <small className="text-muted">Connections</small>
                             </li>
                             <li className="list-inline-item">
                                 <h5 className="font-weight-bold mb-0 d-block">{person.pronouns}</h5>
-                                <small className="text-muted">
-                                    <i className="fas fa-user mr-1"></i>Pronouns
-                                </small>
+                                <small className="text-muted">Pronouns</small>
                             </li>
                         </ul>
                     </div>
