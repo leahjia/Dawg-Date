@@ -6,15 +6,19 @@ import { ProfileList } from './ProfileList.js';
 
 export default function HomePage(props) {
     const currentUser = props.currentUser;
+    const [input, setInput] = useState('')
     const [select, setSelect] = useState('')
     const [category, setCategory] = useState('')
     function applyFilter(val, cate) {
         setSelect(val)
         setCategory(cate)
     }
+
     const displayedData = props.profileData.filter(t => {
         if (currentUser.UWNetId === t.UWNetId || props.currentUserConnections.includes(t.UWNetId)) {
             return false;
+        } else if (input !== '') {
+            return input == t.name
         } else if (select == '') {
             return true;
         } else {
@@ -26,6 +30,13 @@ export default function HomePage(props) {
                 return t.hometown == select
         }
     })
+
+    function applySearch(i) {
+        setInput(i)
+        displayedData = props.profileData.filter(t => {
+            return i == t.name
+        })
+    }
 
     return (
       <div>
