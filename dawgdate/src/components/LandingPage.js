@@ -8,7 +8,7 @@ export default function LandingPage(props) {
 		<div>
 			<div className='landing'>
         <header>
-  				<NavBar variant='landing' handleLoginCallback={props.handleLoginCallback}/>
+  				<NavBar variant='landing' handleLoginCallback={props.handleLoginCallback} handleConnectionsCallback={props.handleConnectionsCallback}/>
         </header>
 				<main className="container">
 						<h1 className="welcome">Welcome to a <em>better</em> dating experience for University of Washington Students</h1>

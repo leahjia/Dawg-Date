@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Navigate } from 'react-router-dom';
 import NavBar from './NavBar.js';
 import Search from './Search.js';
 import { ProfileList } from './ProfileList.js';
