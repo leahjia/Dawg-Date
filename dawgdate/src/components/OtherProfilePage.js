@@ -26,7 +26,7 @@ export default function OtherProfilePage(props) {
 				<div className="row py-5 px-4"><div className="col-md-5 mx-auto"><div className="bg-white shadow rounded overflow-hidden">
 					<div className="px-4 pt-0 pb-4 cover"><div className="media align-items-end profile-head">
 						<div className="profile mr-3">
-							<img src={person.img} alt="..." width="130px" className="rounded mb-2 img-thumbnail" />
+							<img src={person.img} alt="user profile picture" width="130px" className="rounded mb-2 img-thumbnail" />
 						</div>{" "}
 						<div className="media-body mb-5 text-white">
 							<h4 className="mt-0 mb-0">{person.name}</h4>
@@ -74,36 +74,6 @@ export default function OtherProfilePage(props) {
 								<a href="#" className="btn btn-link text-muted">
 									Show all
 								</a>
-							</div>
-							<div className="row">
-								<div className="col-lg-6 mb-2 pr-lg-1">
-									<img
-										src="img/engineering-online-mechanical-29Apr2019.jpeg"
-										alt=""
-										className="img-fluid rounded shadow-sm"
-									/>
-								</div>
-								<div className="col-lg-6 mb-2 pl-lg-1">
-									<img
-										src="img/w-day.jpeg"
-										alt=""
-										className="img-fluid rounded shadow-sm"
-									/>
-								</div>
-								<div className="col-lg-6 pr-lg-1 mb-2">
-									<img
-										src="img/gaming_setup.avif"
-										alt=""
-										className="img-fluid rounded shadow-sm"
-									/>
-								</div>
-								<div className="col-lg-6 pl-lg-1">
-									<img
-										src="img/man_singing.jpg"
-										alt=""
-										className="img-fluid rounded shadow-sm"
-									/>
-								</div>
 							</div>
 						</div>
 					</div>
