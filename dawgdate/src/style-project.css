@@ -331,6 +331,11 @@ section.profile-info p {
     padding: 20px;
 }
 
+.mr-3 img {
+    width: 200%;
+    padding: 1px;
+}
+
 @media (min-width: 768px) {
     .profile {
         flex-basis: 22%;

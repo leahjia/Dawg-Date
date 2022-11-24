@@ -26,7 +26,7 @@ export default function OtherProfilePage(props) {
 				<div className="row py-5 px-4"><div className="col-md-5 mx-auto"><div className="bg-white shadow rounded overflow-hidden">
 					<div className="px-4 pt-0 pb-4 cover"><div className="media align-items-end profile-head">
 						<div className="profile mr-3">
-							<img src={person.img} alt="..." width="130" className="rounded mb-2 img-thumbnail" />
+							<img src={person.img} alt="..." width="130px" className="rounded mb-2 img-thumbnail" />
 						</div>{" "}
 						<div className="media-body mb-5 text-white">
 							<h4 className="mt-0 mb-0">{person.name}</h4>
