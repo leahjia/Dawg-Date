@@ -39,18 +39,18 @@ export default function HomePage(props) {
     }
 
     return (
-      <div>
-        <header className="navbar-bg">
-          <NavBar />
-        </header>
-        <main>
+        <div>
+            <header className="navbar-bg">
+                <NavBar />
+            </header>
+            <main>
                 <Search profileData={props.profileData} applyFilterCallback={applyFilter} applySearchCallback={applySearch} />
-				  <div className="profile-list">
-				  	<h1>People You Might Know</h1>
-				  	<ProfileList profileData={displayedData} currentUser={props.currentUser} currentUserConnections={props.currentUserConnections} handleConnectionCallback={props.handleConnectionCallback}/>
-          </div>
-        </main>
-      </div>
+                <div className="profile-list">
+                    <h1>People You Might Know</h1>
+                    <ProfileList profileData={displayedData} currentUser={props.currentUser} currentUserConnections={props.currentUserConnections} handleConnectionCallback={props.handleConnectionCallback} />
+                </div>
+            </main>
+        </div>
     )
 
 }

@@ -30,21 +30,21 @@ export default function App(props) {
     <div>
       <Routes>
         <Route index element={<LandingPage handleLoginCallback={setCurrentUser} handleConnectionsCallback={setCurrentUserConnections} />} />
-        <Route element={<RequireAuth currentUser={currentUser}/>}>
-          <Route path="/home" element={<HomePage profileData={props.profileData} currentUser={currentUser} currentUserConnections={currentUserConnections} handleConnectionCallback={handleConnection}/>} />
-          <Route path="/profile" element={<MyProfile currentUser={currentUser}/>} />
-          <Route path="/connections" element={<ConnectionsPage profileData={props.profileData} currentUser={currentUser} currentUserConnections={currentUserConnections} handleConnectionCallback={handleConnection}/>} />
-          <Route path="/user/:UWNetId" element={<OtherProfilePage profileData={props.profileData} currentUser={currentUser}/>} />
+        <Route element={<RequireAuth currentUser={currentUser} />}>
+          <Route path="/home" element={<HomePage profileData={props.profileData} currentUser={currentUser} currentUserConnections={currentUserConnections} handleConnectionCallback={handleConnection} />} />
+          <Route path="/profile" element={<MyProfile currentUser={currentUser} />} />
+          <Route path="/connections" element={<ConnectionsPage profileData={props.profileData} currentUser={currentUser} currentUserConnections={currentUserConnections} handleConnectionCallback={handleConnection} />} />
+          <Route path="/user/:UWNetId" element={<OtherProfilePage profileData={props.profileData} currentUser={currentUser} />} />
         </Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   )
 
 }
 
 function RequireAuth(props) {
-  if(props.currentUser == null) {
+  if (props.currentUser == null) {
     return <Navigate to="/" />
   } else {
     return <Outlet />
@@ -53,11 +53,11 @@ function RequireAuth(props) {
 
 export function getUser(userString) {
   const person = SAMPLE_PROFILES.filter((userProfile) => {
-		if (userString === userProfile.UWNetId) {
-			return true;
-		} else {
-			return false;
-		}
-	})[0];
+    if (userString === userProfile.UWNetId) {
+      return true;
+    } else {
+      return false;
+    }
+  })[0];
   return person;
 }
