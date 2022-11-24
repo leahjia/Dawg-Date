@@ -30,7 +30,7 @@ export default function App(props) {
       <Routes>
         <Route index element={<LandingPage handleLoginCallback={setCurrentUser}/>} />
         <Route path="/home" element={<HomePage profileData={props.profileData} currentUser={currentUser} handleConnectionCallBack={setCurrentUser}/>} />
-        <Route path="/profile" element={<MyProfile currentUser={currentUser}/>} />
+        <Route path="/profile" element={<MyProfile profileData={props.profileData}/>} />
         <Route path="/connections" element={<ConnectionsPage profileData={props.profileData} currentUser={currentUser} handleConnectionCallBack={handleConnection}/>} />
         <Route path="/:UWNetId" element={<OtherProfilePage profileData={props.profileData} currentUser={currentUser}/>} />
       </Routes>
