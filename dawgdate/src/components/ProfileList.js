@@ -16,16 +16,18 @@ function ProfileCard(props) {
       }
       return age;
     }(profileData.birthdate);
+
+    console.log(props.currentUserConnections);
     
     let heartColor = 'grey';
-
-    if (currentUser.connections.includes(profileData.UWNetId)) {
+    if (props.currentUserConnections.includes(profileData.UWNetId)) {
       heartColor = 'red';
     }
 
     const handleConnect = function (event) {
-      const user = event.target.user;
-
+      const userString = event.currentTarget.getAttribute('user');
+      console.log(userString);
+      props.handleConnectionCallback(userString);
     }
   
     return (
@@ -49,8 +51,9 @@ function ProfileCard(props) {
       const component = (
         <ProfileCard 
           profileData={profileObj}
-          currentUser={props.currentUser} 
-          handleConnectionCallBack={props.handleConnectionCallback}
+          currentUser={props.currentUser}
+          currentUserConnections={props.currentUserConnections} 
+          handleConnectionCallback={props.handleConnectionCallback}
           key={profileObj.UWNetId}
         />
       )

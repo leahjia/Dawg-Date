@@ -8,6 +8,8 @@ import Footer from './Footer.js';
 import ConnectionsPage from './ConnectionsPage.js';
 import MyProfile from './MyProfile.js';
 
+import SAMPLE_PROFILES from '../profile-data.json';
+
 export default function App(props) {
   // hard coded user
   const [currentUser, setCurrentUser] = useState(null);
@@ -20,6 +22,7 @@ export default function App(props) {
     } else {
       newConnections.push(connectee);
     }
+    console.log(newConnections);
     setCurrentUserConnections(newConnections);
   }
 
@@ -28,9 +31,9 @@ export default function App(props) {
       <Routes>
         <Route index element={<LandingPage handleLoginCallback={setCurrentUser} handleConnectionsCallback={setCurrentUserConnections} />} />
         <Route element={<RequireAuth currentUser={currentUser}/>}>
-          <Route path="/home" element={<HomePage profileData={props.profileData} currentUser={currentUser} handleConnectionCallBack={setCurrentUser}/>} />
+          <Route path="/home" element={<HomePage profileData={props.profileData} currentUser={currentUser} currentUserConnections={currentUserConnections} handleConnectionCallback={handleConnection}/>} />
           <Route path="/profile" element={<MyProfile currentUser={currentUser}/>} />
-          <Route path="/connections" element={<ConnectionsPage profileData={props.profileData} currentUser={currentUser} handleConnectionCallBack={handleConnection}/>} />
+          <Route path="/connections" element={<ConnectionsPage profileData={props.profileData} currentUser={currentUser} currentUserConnections={currentUserConnections} handleConnectionCallback={handleConnection}/>} />
           <Route path="/user/:UWNetId" element={<OtherProfilePage profileData={props.profileData} currentUser={currentUser}/>} />
         </Route>
       </Routes>
@@ -46,4 +49,15 @@ function RequireAuth(props) {
   } else {
     return <Outlet />
   }
+}
+
+export function getUser(userString) {
+  const person = SAMPLE_PROFILES.filter((userProfile) => {
+		if (userString === userProfile.UWNetId) {
+			return true;
+		} else {
+			return false;
+		}
+	})[0];
+  return person;
 }

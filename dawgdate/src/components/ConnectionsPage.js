@@ -8,7 +8,7 @@ export default function ConnectionsPage(props) {
 	const currentUser = props.currentUser;
 
 	const displayedData = props.profileData.filter((userProfile) => {
-		if (currentUser.connections.includes(userProfile.UWNetId)) {
+		if (props.currentUserConnections.includes(userProfile.UWNetId)) {
 			return true;
 		} else {
 			return false;
@@ -23,7 +23,7 @@ export default function ConnectionsPage(props) {
 			<main>
 				<div className="profile-list">
 					<h1>My Connections</h1>
-					<ProfileList profileData={displayedData} currentUser={props.currentUser} handleConnectionCallBack={props.handleConnectionCallback}/>
+					<ProfileList profileData={displayedData} currentUser={props.currentUser} currentUserConnections={props.currentUserConnections} handleConnectionCallback={props.handleConnectionCallback}/>
 				</div>
 			</main>
 		</div>

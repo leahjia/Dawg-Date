@@ -13,7 +13,7 @@ export default function HomePage(props) {
         setCategory(cate)
     }
     const displayedData = props.profileData.filter(t => {
-        if (currentUser.UWNetId === t.UWNetId || currentUser.connections.includes(t.UWNetId)) {
+        if (currentUser.UWNetId === t.UWNetId || props.currentUserConnections.includes(t.UWNetId)) {
             return false;
         } else if (select == '') {
             return true;
@@ -36,7 +36,7 @@ export default function HomePage(props) {
           <Search profileData={props.profileData} applyFilterCallback={applyFilter} />
 				  <div className="profile-list">
 				  	<h1>People You Might Know</h1>
-				  	<ProfileList profileData={displayedData} currentUser={props.currentUser} handleConnectionCallBack={props.handleConnectionCallback}/>
+				  	<ProfileList profileData={displayedData} currentUser={props.currentUser} currentUserConnections={props.currentUserConnections} handleConnectionCallback={props.handleConnectionCallback}/>
           </div>
         </main>
       </div>
