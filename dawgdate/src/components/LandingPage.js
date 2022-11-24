@@ -9,7 +9,7 @@ export default function LandingPage(props) {
       <div className='landing'>
         <NavBar variant='landing' handleLoginCallback={props.handleLoginCallback} handleConnectionsCallback={props.handleConnectionsCallback} />
         <h1 className="welcome">Welcome to a <em>better</em> dating experience for University of Washington Students</h1>
-        <a className="create-account" href="">Create account</a>
+        {/* <a className="create-account" href="">Create account</a> */}
       </div>
 
       <section className="about">
