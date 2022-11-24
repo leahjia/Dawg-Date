@@ -67,36 +67,6 @@ export default function OtherProfilePage(props) {
 									Show all
 								</a>
 							</div>
-							<div className="row">
-								<div className="col-lg-6 mb-2 pr-lg-1">
-									<img
-										src="img/engineering-online-mechanical-29Apr2019.jpeg"
-										alt=""
-										className="img-fluid rounded shadow-sm"
-									/>
-								</div>
-								<div className="col-lg-6 mb-2 pl-lg-1">
-									<img
-										src="img/w-day.jpeg"
-										alt=""
-										className="img-fluid rounded shadow-sm"
-									/>
-								</div>
-								<div className="col-lg-6 pr-lg-1 mb-2">
-									<img
-										src="img/gaming_setup.avif"
-										alt=""
-										className="img-fluid rounded shadow-sm"
-									/>
-								</div>
-								<div className="col-lg-6 pl-lg-1">
-									<img
-										src="img/man_singing.jpg"
-										alt=""
-										className="img-fluid rounded shadow-sm"
-									/>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
