@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function NavBar(props) {
 
@@ -14,16 +14,24 @@ export default function NavBar(props) {
   if (props.variant === 'landing') {
     navLinks = (
       <ul>
-        <li onClick={handleLogin}><Link to="/home">LOGIN</Link></li>
+        <li onClick={handleLogin}><NavLink className="nav-link" to="/home">LOGIN</NavLink></li>
       </ul>
     )
   } else {
     navLinks = (
       <ul>
-        <li><Link to="/home">HOME</Link></li>
-        <li><Link to="/connections">CONNECTIONS</Link></li>
-        <li><Link to="/profile">MY PROFILE</Link></li>
-        <li><Link to="/">LOG OUT</Link></li>
+        <li><NavLink
+          className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
+          to="/home">HOME</NavLink></li>
+        <li><NavLink
+          className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
+          to="/connections">CONNECTIONS</NavLink></li>
+        <li><NavLink
+          className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
+          to="/profile">MY PROFILE</NavLink></li>
+        <li><NavLink
+          className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
+          to="/">LOG OUT</NavLink></li>
       </ul>
     )
   }

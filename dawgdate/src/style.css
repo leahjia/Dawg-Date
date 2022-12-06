@@ -57,15 +57,16 @@ nav img {
     display: inline-block;
     margin-left: 1rem;
     padding: 1rem 1rem;
-}
-
-.navbar ul li a {
     color: azure;
     text-decoration: none;
     font-size: 1.2rem;
 }
 
-.navbar ul li::after {
+.nav-link:hover, .active {
+    color: #f5cf5e;
+}
+
+.nav-link::after {
     content: '';
     width: 0%;
     height: .5rem;
@@ -75,7 +76,7 @@ nav img {
     transition: .5s;
 }
 
-.navbar ul li:hover::after {
+.nav-link:hover::after, .active::after {
     width: 100%;
 }
 
@@ -194,6 +195,7 @@ footer {
     text-align: center;
     margin: 1rem;
 }
+
 .search-bar input {
     background-color: transparent;
     width: 20rem;
@@ -319,10 +321,11 @@ footer {
     header {
         height: 20vh;
     }
+
     .search-bar input {
         width: 30rem;
     }
-    
+
 }
 
 /* media queries for even larger screens */
@@ -354,5 +357,5 @@ footer {
     .search-bar input {
         width: 40rem;
     }
-    
+
 }
