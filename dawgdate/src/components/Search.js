@@ -17,14 +17,14 @@ export default function Search(props) {
       const type = event.currentTarget.id
       setSelect2(val)
       props.applyFilterCallback(val, type)
-  }
+    }
 
-  const handleSelect3 = (event) => {
-    const val = event.target.value
-    const type = event.currentTarget.id
-    setSelect3(val)
-    props.applyFilterCallback(val, type)
-}
+    const handleSelect3 = (event) => {
+      const val = event.target.value
+      const type = event.currentTarget.id
+      setSelect3(val)
+      props.applyFilterCallback(val, type)
+    }
 
   const applyFilters = () => {
     const filters = {
