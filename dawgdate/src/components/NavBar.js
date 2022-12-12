@@ -1,6 +1,18 @@
 import React from "react";
 import { Link, NavLink } from 'react-router-dom';
 
+/*
+const navToggle = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".navbar ul");
+
+navToggle.addEventListener("click", () => {
+  if (navLinks.style.display === "block") {
+    navLinks.style.display = "none";
+  } else {
+    navLinks.style.display = "block";
+  }
+});
+*/
 export default function NavBar(props) {
 
   let navLinks;
@@ -39,12 +51,18 @@ export default function NavBar(props) {
   return (
     <nav>
       <div className="navbar">
+        <button class="hamburger">&#9776;</button>
         <Link to="/home">
           <img src="/img/logo.png" alt="logo" className="logo" />
-          <h1 style={{display: 'inline', marginLeft: '1rem'}}className="name">DawgDate</h1>
+          <h1
+            style={{ display: "inline", marginLeft: "1rem" }}
+            className="name"
+          >
+            DawgDate
+          </h1>
         </Link>
         {navLinks}
       </div>
     </nav>
-  )
+  );
 }

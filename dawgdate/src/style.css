@@ -296,6 +296,25 @@ footer {
     width: auto;
 }
 
+.hamburger {
+  background: transparent;
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  display: block;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar ul {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
 /* media queries for larger screens */
 @media (min-width: 768px) {
     .navbar {
