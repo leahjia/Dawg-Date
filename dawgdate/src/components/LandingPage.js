@@ -1,6 +1,7 @@
 import React from 'react';
 
 import NavBar from './NavBar.js';
+import { NavLink } from 'react-router-dom';
 
 export default function LandingPage(props) {
 
@@ -9,7 +10,7 @@ export default function LandingPage(props) {
       <div className='landing'>
         <NavBar variant='landing' handleLoginCallback={props.handleLoginCallback} handleConnectionsCallback={props.handleConnectionsCallback} currentUser={props.currentUser} />
         <h1 className="welcome">Welcome to a <em>better</em> dating experience for University of Washington Students</h1>
-        {/* <a className="create-account" href="">Create account</a> */}
+        <NavLink className="create-account" to="/signin">Create account</NavLink>
       </div>
 
       <section className="about">
