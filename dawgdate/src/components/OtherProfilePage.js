@@ -5,15 +5,12 @@ import { useParams } from 'react-router-dom';
 import NavBar from "./NavBar.js";
 
 export default function OtherProfilePage(props) {
+  const currentUser = props.currentUser;
+  
 	const personNetId = useParams().UWNetId;
 
-	const person = props.profileData.filter((userProfile) => {
-		console.log(personNetId)
-		if (personNetId === userProfile.UWNetId) {
-			return true;
-		} else {
-			return false;
-		}
+  const person = props.profileData.filter((userProfile) => {
+    return personNetId === userProfile.UWNetId
 	})[0];
 
 	return (

@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import SelfProfilePage from "./SelfProfilePage";
 
 export default function MyProfile(props) {
-
+	
 	return (
 		<div>
 			<header className="navbar-bg">

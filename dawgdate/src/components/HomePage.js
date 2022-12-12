@@ -22,33 +22,38 @@ export default function HomePage(props) {
   }
 
   let displayedData = props.profileData.filter(t => {
-    if (currentUser.UWNetId === t.UWNetId || props.currentUserConnections.includes(t.UWNetId)) {
+
+    // currentUser(from firebase) does not have a currentUserConnections prop
+    
+    if (props.currentUserConnections) { 
+      if (currentUser.UWNetId === t.UWNetId || props.currentUserConnections.includes(t.UWNetId)) {
         return false;
-    } else if (input !== '') {
+      } else if (input !== '') {
         return input === t.name
-    } else if (majorSelect === '') {
+      } else if (majorSelect === '') {
         return true;
-    } else if (genderSelect === '') {
+      } else if (genderSelect === '') {
         return true;
-    } else if (hometownSelect === '') {
+      } else if (hometownSelect === '') {
         return true;
-    }  else {
-      if (category === "majorSelect")
+      } else {
+        if (category === "majorSelect")
           return t.major === majorSelect
-      else if (category2 === "genderSelect")
+        else if (category2 === "genderSelect")
           return t.gender === genderSelect
-      else if (category3 === "hometownSelect")
+        else if (category3 === "hometownSelect")
           return t.hometown === hometownSelect
-  }
+      }
+    }
     return null;
   })
 
-    function applySearch(i) {
-      setInput(i)
-      displayedData = props.profileData.filter(t => {
-          return i === t.name
-      })
-    }
+  function applySearch(i) {
+    setInput(i)
+    displayedData = props.profileData.filter(t => {
+      return i === t.name
+    })
+  }
 
   return (
     <div>
