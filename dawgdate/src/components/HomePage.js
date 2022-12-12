@@ -6,11 +6,19 @@ import { ProfileList } from './ProfileList.js';
 export default function HomePage(props) {
   const currentUser = props.currentUser;
   const [input, setInput] = useState('')
-  const [select, setSelect] = useState('')
+  const [genderSelect, setSelect] = useState('')
+  const [majorSelect, setSelect2] = useState('')
+  const [hometownSelect, setSelect3] = useState('')
   const [category, setCategory] = useState('')
+  const [category2, setCategory2] = useState('')
+  const [category3, setCategory3] = useState('')
   function applyFilter(val, cate) {
     setSelect(val)
     setCategory(cate)
+    setSelect2(val)
+    setCategory2(cate)
+    setSelect3(val)
+    setCategory3(cate)
   }
 
   let displayedData = props.profileData.filter(t => {
@@ -18,16 +26,20 @@ export default function HomePage(props) {
         return false;
     } else if (input !== '') {
         return input === t.name
-    } else if (select === '') {
+    } else if (majorSelect === '') {
         return true;
-    } else {
-        if (category === "majorSelect")
-            return t.major === select
-        else if (category === "genderSelect")
-            return t.gender === select
-        else if (category === "hometownSelect")
-            return t.hometown === select
-    }
+    } else if (genderSelect === '') {
+        return true;
+    } else if (hometownSelect === '') {
+        return true;
+    }  else {
+      if (category === "majorSelect")
+          return t.major === majorSelect
+      else if (category2 === "genderSelect")
+          return t.gender === genderSelect
+      else if (category3 === "hometownSelect")
+          return t.hometown === hometownSelect
+  }
     return null;
   })
 
