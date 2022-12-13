@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from 'react-router-dom';
+import { getAuth, signOut } from "firebase/auth";
 
 export default function NavBar(props) {
 
@@ -9,6 +10,10 @@ export default function NavBar(props) {
   const handleLogin = function () {
     props.handleLoginCallback(hardCodedUser)
     props.handleConnectionsCallback(hardCodedUser.connections)
+  }
+
+  const handleLogOut = function (event) {
+    signOut(getAuth())
   }
 
   if (props.variant === 'landing') {
@@ -29,7 +34,7 @@ export default function NavBar(props) {
         <li><NavLink
           className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
           to="/profile">MY PROFILE</NavLink></li>
-        <li><NavLink
+        <li><NavLink onClick={handleLogOut}
           className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
           to="/">LOG OUT</NavLink></li>
       </ul>
