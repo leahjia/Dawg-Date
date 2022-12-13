@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage'
-import { updateProfile } from 'firebase/auth';
+import { getAuth, updateProfile } from 'firebase/auth';
 import { getDatabase, onValue, ref as dbRef, set as firebaseSet } from 'firebase/database';
 import EditForm from "./EditForm";
 
@@ -17,7 +17,8 @@ export default function SelfProfilePage(props) {
   })
 
   const [imageFile, setImageFile] = useState(undefined)
-  let initialURL = props.currentUser.userImg || "/img/profile-default.jpeg"
+  let initialURL = props.currentUser.img || "/img/profile-default.jpeg"
+  console.log(props.currentUser.img)
   const [previewImageUrl, setPreviewImageUrl] = useState(initialURL)
   const handleChange = (event) => {
     if (event.target.files.length > 0 && event.target.files[0]) {
@@ -32,44 +33,22 @@ export default function SelfProfilePage(props) {
     // console.log("Uploading", imageFile);
     const storage = getStorage();
     // console.log(currentUser)
-    const userImageRef = storageRef(storage, "/userImages/" + currentUser.UWNetId + ".png");
+    const userImageRef = storageRef(storage, "/userImages/" + currentUser.uid + ".png");
     await uploadBytes(userImageRef, imageFile);
 
     const downloadUrlString = await getDownloadURL(userImageRef)
     // console.log(downloadUrlString)
-    await updateProfile(currentUser, { photoURL: downloadUrlString })
-    const userDbRef = dbRef(getDatabase(), "userData/" + currentUser.UWNetId + "/" + "imgUrl");
+    await updateProfile(currentUser, { img: downloadUrlString })
+    const userDbRef = dbRef(getDatabase(), "userData/" + currentUser.uid + "/" + "img");
     firebaseSet(userDbRef, downloadUrlString);
   }
-  const [about, setAbout] = useState()
-  const [Bio, setBio] = useState()
-  const [editing, setEditing] = useState(false)
-
-//   useEffect(() => {
-//     const aboutRef = dbRef(getDatabase(), "userData/" + currentUser.uid + "/" + "about");
-//     const bioRef = dbRef(getDatabase(), "userData/" + currentUser.UWNetId + "/" + "bio");
-//     console.log(bioRef)
-// 
-//     //when db value changes
-//     const offFunctionAbout = onValue(aboutRef, (snapshot) => { setAbout(snapshot.val()) })
-//     const offFunctionBio = onValue(bioRef, (snapshot) => { setBio(snapshot.val()) })
-// 
-//     function cleanup() {
-//       console.log("component is being removed");
-//       //when the component goes away, we turn off the listener
-//       offFunctionAbout();
-//       offFunctionBio();
-//     }
-//     return cleanup; //return instructions on how to turn off lights
-//   }, [])
-
   return (
     <div>
       <div className="snippet-body"><div className="row py-5 px-4"><div className="col-md-5 mx-auto"><div className="bg-white shadow rounded overflow-hidden">
         <div className="px-4 pt-0 pb-4 cover">
           <div className="media align-items-end profile-head">
-            <div className="profile mr-3">
-              <img src={previewImageUrl} alt={currentUser.name} width="130" className="rounded mb-2 img-thumbnail" />
+            <div className="profile mr-3 image-upload-form">
+              <img src={previewImageUrl} alt="user avatar preview" width="130" className="rounded mb-2 img-thumbnail" />
               <label htmlFor="imageUploadInput" className="btn btn-sm btn-secondary me-2">Upload Image</label>
               <button className="btn btn-sm btn-success" onClick={handleImageUpload}>Save to Profile</button>
               <input type="file" name="image" id="imageUploadInput" className="d-none" onChange={handleChange} />
