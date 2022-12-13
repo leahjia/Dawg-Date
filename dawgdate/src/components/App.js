@@ -12,13 +12,8 @@ import MyProfile from './MyProfile.js';
 import SignInPage from './SignInPage.js';
 import EditForm from './EditForm.js';
 
-import SAMPLE_PROFILES from '../profile-data.json';
-import { unstable_renderSubtreeIntoContainer } from 'react-dom';
-
 export default function App(props) {
-  // hard coded user
   const [currentUser, setCurrentUser] = useState(null) //default to null user
-  const [currentUserConnections, setCurrentUserConnections] = useState(null);
   const [userList, setUserList] = useState(null);
 
   console.log("rendering app with", currentUser);
@@ -56,14 +51,13 @@ export default function App(props) {
 
 
   const handleConnection = function (connectee) {
-    const newConnections = [...currentUserConnections];
-    if (currentUserConnections.includes(connectee)) {
+    const newConnections = [...currentUser.connections];
+
+    if (currentUser.connections.includes(connectee)) {
       newConnections.splice(newConnections.indexOf(connectee), 1);
     } else {
       newConnections.push(connectee);
     }
-    console.log(newConnections);
-    setCurrentUserConnections(newConnections);
   }
 
   return (
@@ -72,9 +66,9 @@ export default function App(props) {
         <Route index element={<LandingPage currentUser={currentUser} />} />
         <Route path="/signin" element={<SignInPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
         <Route element={<RequireAuth currentUser={currentUser} />}>
-          <Route path="/home" element={<HomePage profileData={userList} currentUser={currentUser} currentUserConnections={currentUserConnections} handleConnectionCallback={handleConnection} />} />
+          <Route path="/home" element={<HomePage profileData={userList} currentUser={currentUser} handleConnectionCallback={handleConnection} />} />
           <Route path="/profile" element={<MyProfile currentUser={currentUser} />} />
-          <Route path="/connections" element={<ConnectionsPage profileData={userList} currentUser={currentUser} currentUserConnections={currentUserConnections} handleConnectionCallback={handleConnection} />} />
+          <Route path="/connections" element={<ConnectionsPage profileData={userList} currentUser={currentUser} handleConnectionCallback={handleConnection} />} />
           <Route path="/user/:UWNetId" element={<OtherProfilePage profileData={userList} currentUser={currentUser} />} />
           <Route path="/edit" element={<EditForm />} />
         </Route>
@@ -93,8 +87,8 @@ function RequireAuth(props) {
   }
 }
 
-export function getUser(userString) {
-  const person = SAMPLE_PROFILES.filter((userProfile) => {
+export function getUser (userList, userString) {
+  const person = userList.filter((userProfile) => {
     if (userString === userProfile.UWNetId) {
       return true;
     } else {
