@@ -27,13 +27,6 @@ export default function NavBar(props) {
     signOut(getAuth());
   }
 
-  if (props.variant === 'signin') {
-    navLinks = (
-      <ul>
-      </ul>
-    )
-  }
-
   if (props.variant === 'landing') {
     navLinks = (
       <ul>
