@@ -48,11 +48,7 @@ export default function SignInPage(props) {
             "birthdate": "", 
             "hometown": "", 
             "major": "", 
-            "profile-pic": "", 
-            "connections": [],
-            "sentConnections": [],
-            "receivedConnections" : [],
-            "img": "",
+            "profile-pic": "",
             "uid": firebaseUser.uid
           }
           const db = getDatabase();

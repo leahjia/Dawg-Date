@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, Outlet, Navigate, useNavigate } from 'react-router-dom';
 import { deleteUser, getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDatabase, ref, set as firebaseSet, get, onValue } from 'firebase/database';
+import { getDatabase, ref, set as firebaseSet, get, onValue, remove } from 'firebase/database';
 
 import LandingPage from './LandingPage.js';
 import HomePage from './HomePage.js';
@@ -29,7 +29,7 @@ export default function App(props) {
         const userRef = ref(db, 'userData/'+firebaseUser.uid)
         get(userRef)
           .then((response) => {
-            console.log(response.val());
+            console.log("this is the currentUser " + response.val());
             setCurrentUser(response.val());
           })
       } else {
@@ -60,15 +60,33 @@ export default function App(props) {
     }
   }
 
+  const sendRequest = function (connectee) {
+    firebaseSet(ref(db, 'userData/' +currentUser.uid+'/sentConnections/'+connectee), true);
+    firebaseSet(ref(db, 'userData/' +connectee+'/receivedConnections/'+currentUser.uid), true);
+    
+  }
+
+  const acceptRequest = function (connectee) {
+    firebaseSet(ref(db, 'userData/' +currentUser.uid+'/receivedConnections/'+connectee), null);
+    firebaseSet(ref(db, 'userData/' +connectee+'/sentConnections/'+currentUser.uid), null);
+    firebaseSet(ref(db, 'userData/' +currentUser.uid+'/connections/'+connectee), true);
+    firebaseSet(ref(db, 'userData/' +connectee+'/connections/'+currentUser.uid), true);
+  }
+
+  const removeConnection = function (connectee) {
+    firebaseSet(ref(db, 'userData/' +connectee+'/connections/'+currentUser.uid), null);
+    firebaseSet(ref(db, 'userData/' +currentUser.uid+'/connections/'+connectee), null);
+  }
+
   return (
     <div>
       <Routes>
         <Route index element={<LandingPage currentUser={currentUser} />} />
         <Route path="/signin" element={<SignInPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
         <Route element={<RequireAuth currentUser={currentUser} />}>
-          <Route path="/home" element={<HomePage profileData={userList} currentUser={currentUser} handleConnectionCallback={handleConnection} />} />
+          <Route path="/home" element={<HomePage profileData={userList} currentUser={currentUser} sendRequest={sendRequest} />} />
           <Route path="/profile" element={<MyProfile currentUser={currentUser} />} />
-          <Route path="/connections" element={<ConnectionsPage profileData={userList} currentUser={currentUser} handleConnectionCallback={handleConnection} />} />
+          <Route path="/connections" element={<ConnectionsPage profileData={userList} currentUser={currentUser} acceptRequest={acceptRequest} removeConnection={removeConnection}/>} />
           <Route path="/user/:UWNetId" element={<OtherProfilePage profileData={userList} currentUser={currentUser} />} />
           <Route path="/edit" element={<EditForm currentUser={currentUser}/>} />
         </Route>
