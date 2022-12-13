@@ -1,9 +1,13 @@
 import React from 'react';
 
 import NavBar from './NavBar.js';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
 
 export default function LandingPage(props) {
+
+  if (props.currentUser) { //if I'm signed in
+    return <Navigate to="/profile" />
+  }
 
 	return (
     <main>
