@@ -1,17 +1,23 @@
 import React from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 
 
 import NavBar from "./NavBar.js";
 
 export default function OtherProfilePage(props) {
   const currentUser = props.currentUser;
-  
 	const personNetId = useParams().UWNetId;
+
+  if (currentUser.UWNetId === personNetId) {
+    <Navigate to="/profile" />
+  }
 
   const person = props.profileData.filter((userProfile) => {
     return personNetId === userProfile.UWNetId
 	})[0];
+  if (person === undefined) {
+    <Navigate to="/home" />
+  }
 
 	return (
     <div>
