@@ -51,13 +51,12 @@ export default function NavBar(props) {
         <li><NavLink
           className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
           to="/profile">MY PROFILE</NavLink></li>
+         <li><NavLink
+          className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
+          to="/edit">EDIT PROFILE</NavLink></li>
         <li><NavLink
           className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
           to="/"><button className="btn" onClick={handleSignOut}>LOG OUT</button></NavLink></li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/signin">
-          </NavLink>
-        </li>
       </ul>
     )
   }

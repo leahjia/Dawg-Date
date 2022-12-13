@@ -70,7 +70,7 @@ export default function App(props) {
           <Route path="/profile" element={<MyProfile currentUser={currentUser} />} />
           <Route path="/connections" element={<ConnectionsPage profileData={userList} currentUser={currentUser} handleConnectionCallback={handleConnection} />} />
           <Route path="/user/:UWNetId" element={<OtherProfilePage profileData={userList} currentUser={currentUser} />} />
-          <Route path="/edit" element={<EditForm />} />
+          <Route path="/edit" element={<EditForm currentUser={currentUser}/>} />
         </Route>
       </Routes>
       <Footer />
