@@ -47,6 +47,7 @@ export default function SignInPage(props) {
             "bio": "", 
             "birthdate": "", 
             "hometown": "", 
+            "img": "https://firebasestorage.googleapis.com/v0/b/dawgdate-info340-project.appspot.com/o/userImages%2Fprofile-default.jpeg?alt=media&token=b7faaab6-b29b-4003-b447-b4b6f9c4644b",
             "major": "", 
             "profile-pic": "",
             "uid": firebaseUser.uid
