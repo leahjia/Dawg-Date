@@ -42,14 +42,6 @@ export default function OtherProfilePage(props) {
               <div className="bg-light p-4 d-flex justify-content-end text-center">
                 <ul className="list-inline mb-0">
                   <li className="list-inline-item">
-                    <h5 className="font-weight-bold mb-0 d-block">4</h5>
-                    <small className="text-muted">Photos</small>
-                  </li>
-                  <li className="list-inline-item">
-                    <h5 className="font-weight-bold mb-0 d-block">{person.connections.length}</h5>
-                    <small className="text-muted">Connections</small>
-                  </li>
-                  <li className="list-inline-item">
                     <h5 className="font-weight-bold mb-0 d-block">{person.pronouns}</h5>
                     <small className="text-muted">Pronouns</small>
                   </li>
@@ -60,16 +52,11 @@ export default function OtherProfilePage(props) {
                 <div className="p-4 rounded shadow-sm bg-light">
                   <p className="font-italic mb-0">Birthday: {person.birthdate}</p>
                   <p className="font-italic mb-0">Major: {person.major}</p>
+                  <p className="font-italic mb-0">Hometown: {person.hometown}</p>
                 </div>
                 <div className="mb-0">
                   <h5>Bio</h5>
                   <p className="font-italic mb-0">{person.bio}</p>
-                </div>
-                <div className="py-4 px-4">
-                  <div className="d-flex align-items-center justify-content-between mb-3">
-                    <h5 className="mb-0">Photos</h5>
-                    <a href="#" className="btn btn-link text-muted">Show all</a>
-                  </div>
                 </div>
               </div>
             </div>

@@ -47,7 +47,7 @@ export default function ConnectionsPage(props) {
           </div>
           <div className="profile-list">
             <h1>My Connections</h1>
-            <ProfileList variant='establishedConnections' profileData={existingConnections} currentUser={props.currentUser} currentUserConnections={props.currentUserConnections} handleConnectionCallback={props.handleConnectionCallback} />
+            <ProfileList variant='establishedConnections' profileData={existingConnections} currentUser={props.currentUser} currentUserConnections={props.currentUserConnections} removeConnection={props.removeConnection} />
           </div>
         </div>
 			</main>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, Outlet, Navigate, useNavigate } from 'react-router-dom';
 import { deleteUser, getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDatabase, ref, set as firebaseSet, get, onValue, remove } from 'firebase/database';
+import { getDatabase, ref, set as firebaseSet, get, onValue, remove, set } from 'firebase/database';
 
 import LandingPage from './LandingPage.js';
 import HomePage from './HomePage.js';
@@ -49,20 +49,29 @@ export default function App(props) {
     }))
   }, []) //array is list of variables that will cause this to rerun if changed
 
-
-  const handleConnection = function (connectee) {
-    const newConnections = [...currentUser.connections];
-
-    if (currentUser.connections.includes(connectee)) {
-      newConnections.splice(newConnections.indexOf(connectee), 1);
-    } else {
-      newConnections.push(connectee);
+  useEffect(() => {
+    if (currentUser) {
+      const currentUserRef = ref(db, 'userData/'+currentUser.uid)
+      const unregisterFunction = onValue(currentUserRef, (snapshot) => {
+        console.log("refreshing user" + snapshot.val())
+        setCurrentUser(snapshot.val())
+      })
+      function cleanup() {
+        unregisterFunction();
+      }
+      return cleanup;
     }
-  }
+  }, [])
 
   const sendRequest = function (connectee) {
     firebaseSet(ref(db, 'userData/' +currentUser.uid+'/sentConnections/'+connectee), true);
     firebaseSet(ref(db, 'userData/' +connectee+'/receivedConnections/'+currentUser.uid), true);
+    const userRef = ref(db, 'userData/'+currentUser.uid)
+    get(userRef)
+      .then((response) => {
+        console.log("this is the currentUser " + response.val());
+        setCurrentUser(response.val());
+      })
     
   }
 
@@ -71,11 +80,23 @@ export default function App(props) {
     firebaseSet(ref(db, 'userData/' +connectee+'/sentConnections/'+currentUser.uid), null);
     firebaseSet(ref(db, 'userData/' +currentUser.uid+'/connections/'+connectee), true);
     firebaseSet(ref(db, 'userData/' +connectee+'/connections/'+currentUser.uid), true);
+    const userRef = ref(db, 'userData/'+currentUser.uid)
+    get(userRef)
+      .then((response) => {
+        console.log("this is the currentUser " + response.val());
+        setCurrentUser(response.val());
+      })
   }
 
   const removeConnection = function (connectee) {
     firebaseSet(ref(db, 'userData/' +connectee+'/connections/'+currentUser.uid), null);
     firebaseSet(ref(db, 'userData/' +currentUser.uid+'/connections/'+connectee), null);
+    const userRef = ref(db, 'userData/'+currentUser.uid)
+    get(userRef)
+      .then((response) => {
+        console.log("this is the currentUser " + response.val());
+        setCurrentUser(response.val());
+      })
   }
 
   return (

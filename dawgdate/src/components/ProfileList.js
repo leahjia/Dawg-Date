@@ -18,7 +18,7 @@ function ProfileCard(props) {
 
   let heartColor = 'grey';
   
-  if (props.currentUser.hasConnections && Object.keys(props.currentUser.connections).includes(profileData.uid)) {
+  if (props.currentUser.connections && Object.keys(props.currentUser.connections).includes(profileData.uid)) {
     heartColor = 'red';
   }
 
