@@ -15,35 +15,6 @@ export default function SelfProfilePage(props) {
       </div>
     )
   })
-  // const [tempUser, setTempUser]
-
-  useEffect(() => {
-
-    const aboutRef = dbRef(getDatabase(), "userData/" + currentUser.UWNetId + "/" + "about");
-    //when db value changes
-    const offFunction = onValue(aboutRef, (snapshot) => {
-      setabout(snapshot.val())
-    })
-
-    const bioRef = dbRef(getDatabase(), "userData/" + currentUser.UWNetId + "/" + "bio");
-    //when db value changes
-    const offFunction2 = onValue(bioRef, (snapshot) => {
-      setBio(snapshot.val());
-    })
-
-    function cleanup() {
-      console.log("component is being removed");
-      //when the component goes away, we turn off the listener
-      offFunction();
-      offFunction2();
-    }
-    return cleanup; //return instructions on how to turn off lights
-
-
-
-
-
-  }, [])
 
   const [imageFile, setImageFile] = useState(undefined)
   let initialURL = props.currentUser.userImg || "/img/profile-default.jpeg"
@@ -70,22 +41,27 @@ export default function SelfProfilePage(props) {
     const userDbRef = dbRef(getDatabase(), "userData/" + currentUser.UWNetId + "/" + "imgUrl");
     firebaseSet(userDbRef, downloadUrlString);
   }
-  const [about, setabout] = useState()
+  const [about, setAbout] = useState()
   const [Bio, setBio] = useState()
-  const handleSaveClick = async (event) => {
-    const aboutRef = dbRef(getDatabase(), "userData/" + currentUser.uid + "/" + "about")
-    firebaseSet(aboutRef, about);
-    const bioRef = dbRef(getDatabase(), "userData/" + currentUser.uid + "/" + "Bio")
-    firebaseSet(bioRef, Bio);
-    setEditing(false);
-  }
   const [editing, setEditing] = useState(false)
-  const handleEdit = async (e) => {
-    setEditing(true);
-  }
-  const handleCancelClick = async (event) => {
-    setEditing(false);
-  }
+
+//   useEffect(() => {
+//     const aboutRef = dbRef(getDatabase(), "userData/" + currentUser.uid + "/" + "about");
+//     const bioRef = dbRef(getDatabase(), "userData/" + currentUser.UWNetId + "/" + "bio");
+//     console.log(bioRef)
+// 
+//     //when db value changes
+//     const offFunctionAbout = onValue(aboutRef, (snapshot) => { setAbout(snapshot.val()) })
+//     const offFunctionBio = onValue(bioRef, (snapshot) => { setBio(snapshot.val()) })
+// 
+//     function cleanup() {
+//       console.log("component is being removed");
+//       //when the component goes away, we turn off the listener
+//       offFunctionAbout();
+//       offFunctionBio();
+//     }
+//     return cleanup; //return instructions on how to turn off lights
+//   }, [])
 
   return (
     <div>
@@ -97,7 +73,6 @@ export default function SelfProfilePage(props) {
               <label htmlFor="imageUploadInput" className="btn btn-sm btn-secondary me-2">Upload Image</label>
               <button className="btn btn-sm btn-success" onClick={handleImageUpload}>Save to Profile</button>
               <input type="file" name="image" id="imageUploadInput" className="d-none" onChange={handleChange} />
-              {/* <a href="#" className="btn btn-outline-dark btn-sm btn-block">Edit profile</a> */}
             </div>{" "}
             <div className="media-body mb-5 text-white">
               <h4 className="mt-0 mb-0">{currentUser.name}</h4>
@@ -121,28 +96,8 @@ export default function SelfProfilePage(props) {
             </li>
           </ul>
         </div>
-        <button className="btn btn-sm btn-secondary me-2" onClick={handleEdit}>Edit Profile</button>
         <div className="px-4 py-3">
-          {editing ? (
-            <>
-              <>
-                <EditForm currentUser={currentUser} editing={editing}></EditForm>
-                <button className="btn btn-sm btn-secondary me-2" onClick={handleCancelClick}>Cancel</button>
-                <button className="btn btn-sm btn-primary me-2" onClick={handleSaveClick}>Update</button>
-              </>
-            </>) : (
-            <>
-              <h5 className="mb-0">About</h5>
-              <div className="p-4 rounded shadow-sm bg-light">
-                <p className="font-italic mb-0">{currentUser.about !== "" ? currentUser.about : "No introduction yet"}</p>
-              </div>
-              <div className="mb-0">
-                <h5>Bio</h5>
-                <p className="font-italic mb-0">{currentUser.bio !== "" ? currentUser.bio : "No Bio yet"}</p>
-              </div>
-
-            </>)
-          }
+          <EditForm currentUser={currentUser}></EditForm>
           <div className="py-4 px-4">
             <div className="d-flex align-items-center justify-content-between mb-3">
               <h5 className="mb-0">Photos</h5>

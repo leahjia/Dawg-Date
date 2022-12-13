@@ -30,10 +30,10 @@ export default function Search(props) {
     const filters = {
       gender: genderSelect,
       major: majorSelect,
-      hometown: hometownSelect
-    }
-    props.applyFilterCallback(filters)
-  }
+      hometown: hometownSelect,
+    };
+    props.applyFilterCallback(filters);
+  };
 
     const uniMajors = [...new Set(props.profileData.map(p => p.major))]
     const majorElems = uniMajors.map((major) => {
@@ -67,7 +67,7 @@ export default function Search(props) {
           <select id="hometownSelect" className="filter" aria-label="hometown-filter" value={hometownSelect} onChange={handleSelect3}>
             <option value="" >Area</option>{hometownElems}
           </select>
-          <button onClick={applyFilters}>Apply Filters</button>
+          <button classname='btn btn-primary' onClick={applyFilters}> Search</button>
         </div>
       </section>
     )
