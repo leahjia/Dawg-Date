@@ -8,8 +8,6 @@ import { ref, getDatabase, set as firebaseSet } from 'firebase/database'
 import { StyledFirebaseAuth } from 'react-firebaseui';
 import NavBar from './NavBar.js';
 
-import DEFAULT_USERS from '../profile-data.json';
-
 export default function SignInPage(props) {
   const currentUser = props.currentUser;
 
@@ -55,6 +53,7 @@ export default function SignInPage(props) {
             "sentConnections": [],
             "receivedConnections" : [],
             "img": "",
+            "uid": firebaseUser.uid
           }
           const db = getDatabase();
           firebaseSet(ref(db, 'userData/' +firebaseUser.uid), newUser);
