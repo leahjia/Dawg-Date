@@ -9,21 +9,21 @@ export default function Search(props) {
         const val = event.target.value
         const type = event.currentTarget.id
         setSelect(val)
-        props.applyFilterCallback(val, type)
+        props.applyFilterCallback(genderSelect, majorSelect, hometownSelect)
     }
 
     const handleSelect2 = (event) => {
       const val = event.target.value
       const type = event.currentTarget.id
       setSelect2(val)
-      props.applyFilterCallback(val, type)
+      props.applyFilterCallback(genderSelect, majorSelect, hometownSelect)
     }
 
     const handleSelect3 = (event) => {
       const val = event.target.value
       const type = event.currentTarget.id
       setSelect3(val)
-      props.applyFilterCallback(val, type)
+      props.applyFilterCallback(genderSelect, majorSelect, hometownSelect)
     }
 
   const applyFilters = () => {
