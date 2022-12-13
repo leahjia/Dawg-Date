@@ -62,14 +62,6 @@ export default function SelfProfilePage(props) {
         <div className="bg-light p-4 d-flex justify-content-end text-center">
           <ul className="list-inline mb-0">
             <li className="list-inline-item">
-              <h5 className="font-weight-bold mb-0 d-block">4</h5>
-              <small className="text-muted">Photos</small>
-            </li>
-            <li className="list-inline-item">
-              {/* <h5 className="font-weight-bold mb-0 d-block">{currentUser.connections.length}</h5> */}
-              <small className="text-muted">Connections</small>
-            </li>
-            <li className="list-inline-item">
               <h5 className="font-weight-bold mb-0 d-block">{currentUser.pronouns}</h5>
               <small className="text-muted">Pronouns</small>
             </li>
