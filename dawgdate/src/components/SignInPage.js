@@ -3,22 +3,15 @@ import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 // import Dropdown from 'react-bootstrap/Dropdown';
 
-import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, EmailAuthProvider, GoogleAuthProvider, onAuthStateChanged, deleteUser } from 'firebase/auth';
+import { ref, getDatabase, set as firebaseSet } from 'firebase/database'
 import { StyledFirebaseAuth } from 'react-firebaseui';
+import NavBar from './NavBar.js';
 
 import DEFAULT_USERS from '../profile-data.json';
 
 export default function SignInPage(props) {
   const currentUser = props.currentUser;
-  const loginFunction = props.loginCallback;
-
-  const handleClick = (event) => {
-    const whichUser = event.currentTarget.name //access button, not image
-    console.log(whichUser);
-    const selectedUserObj = DEFAULT_USERS.filter((userObj) => userObj.UWNetId === whichUser)[0] || DEFAULT_USERS[0] //null user if not found
-
-    loginFunction(selectedUserObj)
-  }
 
   const auth = getAuth();
 
@@ -34,18 +27,60 @@ export default function SignInPage(props) {
     credentialHelper: 'none'
   }
 
-  if (currentUser.UWNetId) { //if I'm signed in
-    console.log("current id: ", currentUser.UWNetId)
+  onAuthStateChanged(auth, (firebaseUser) => {
+    if (firebaseUser) {
+      if (firebaseUser.metadata.creationTime === firebaseUser.metadata.lastSignInTime) {
+        const email = firebaseUser.email;
+        const domain = email.split('@')[1];
+        if (domain.toLowerCase() !== 'uw.edu') {
+          auth.signOut();
+          deleteUser(firebaseUser).then(() => {
+            console.log('not UW student');
+          })
+          props.setCurrentUser(null);
+          return <Navigate to="/" />
+        } else {
+          const UWNetId = firebaseUser.email.split('@')[0];
+          const newUser = {
+            "UWNetId": UWNetId,
+            "name": firebaseUser.displayName, 
+            "gender": "", 
+            "pronouns": "", 
+            "bio": "", 
+            "birthdate": "", 
+            "hometown": "", 
+            "major": "", 
+            "profile-pic": "", 
+            "connections": [],
+            "sentConnections": [],
+            "receivedConnections" : [],
+            "img": "",
+          }
+          const db = getDatabase();
+          firebaseSet(ref(db, 'userData/' +firebaseUser.uid), newUser);
+          props.setCurrentUser(firebaseUser);
+          return <Navigate to="/edit" />
+        }
+      }
+    } else {
+      console.log("logged out");
+      props.setCurrentUser(null);
+    }
+  })//array is list of variables that will cause this to rerun if changed
+
+  if (currentUser) { //if I'm signed in
     return <Navigate to="/profile" />
   }
 
   return (
-    <div className="card bg-light">
-      <div className="container card-body">
-
-        <StyledFirebaseAuth firebaseAuth={auth} uiConfig={uiConfigObj} />
-
+    <div>
+      <NavBar variant="signin" />
+      <div className="card bg-light">
+        <div className="container card-body">
+          <StyledFirebaseAuth firebaseAuth={auth} uiConfig={uiConfigObj} />
+        </div>
       </div>
     </div>
+
   )
 }
