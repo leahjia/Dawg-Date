@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import NavBar from './NavBar.js';
+
 export default function EditForm(props) {
   const [name, setName] = useState(props.currentUser.name);
   const [hometown, setHometown] = useState(props.currentUser.hometown);
@@ -23,6 +25,7 @@ export default function EditForm(props) {
 
   return (
     <div>
+      <NavBar />
       <h2>Update Profile</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
