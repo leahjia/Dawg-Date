@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage'
-import { updateProfile } from 'firebase/auth';
+import { getAuth, updateProfile } from 'firebase/auth';
 import { getDatabase, onValue, ref as dbRef, set as firebaseSet } from 'firebase/database';
 import EditForm from "./EditForm";
 
@@ -17,7 +17,8 @@ export default function SelfProfilePage(props) {
   })
 
   const [imageFile, setImageFile] = useState(undefined)
-  let initialURL = props.currentUser.userImg || "/img/profile-default.jpeg"
+  let initialURL = props.currentUser.img || "/img/profile-default.jpeg"
+  console.log(props.currentUser.img)
   const [previewImageUrl, setPreviewImageUrl] = useState(initialURL)
   const handleChange = (event) => {
     if (event.target.files.length > 0 && event.target.files[0]) {
@@ -37,7 +38,7 @@ export default function SelfProfilePage(props) {
 
     const downloadUrlString = await getDownloadURL(userImageRef)
     // console.log(downloadUrlString)
-    await updateProfile(currentUser, { photoURL: downloadUrlString })
+    await updateProfile(currentUser, { img: downloadUrlString })
     const userDbRef = dbRef(getDatabase(), "userData/" + currentUser.uid + "/" + "img");
     firebaseSet(userDbRef, downloadUrlString);
   }
@@ -46,8 +47,8 @@ export default function SelfProfilePage(props) {
       <div className="snippet-body"><div className="row py-5 px-4"><div className="col-md-5 mx-auto"><div className="bg-white shadow rounded overflow-hidden">
         <div className="px-4 pt-0 pb-4 cover">
           <div className="media align-items-end profile-head">
-            <div className="profile mr-3">
-              <img src={previewImageUrl} alt={currentUser.name} width="130" className="rounded mb-2 img-thumbnail" />
+            <div className="profile mr-3 image-upload-form">
+              <img src={previewImageUrl} alt="user avatar preview" width="130" className="rounded mb-2 img-thumbnail" />
               <label htmlFor="imageUploadInput" className="btn btn-sm btn-secondary me-2">Upload Image</label>
               <button className="btn btn-sm btn-success" onClick={handleImageUpload}>Save to Profile</button>
               <input type="file" name="image" id="imageUploadInput" className="d-none" onChange={handleChange} />
