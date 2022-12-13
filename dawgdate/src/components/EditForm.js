@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, onValue, ref as dbRef, set as firebaseSet } from 'firebase/database';
+import { sanitize } from 'dompurify';
 
 export default function EditForm(props) {
   const currentUser = props.currentUser
@@ -91,7 +92,7 @@ export default function EditForm(props) {
                   type="text"
                   placeholder="Add your introduction here"
                   value={about}
-                  onChange={(e) => setAbout(e.target.value)}
+                  onChange={(e) => setAbout(sanitize(e.target.value))}
                 ></input>
               </>
             </div>
@@ -101,7 +102,7 @@ export default function EditForm(props) {
                 type="text"
                 className="font-italic m-3 mb-5 block px-4"
                 value={pronouns}
-                onChange={(e) => setPronouns(e.target.value)}
+                onChange={(e) => setPronouns(sanitize(e.target.value))}
               />
             </div>
             <div className="mb-0">
@@ -111,7 +112,7 @@ export default function EditForm(props) {
                 type="text"
                 placeholder="Add your bio here"
                 value={bio}
-                onChange={(e) => setBio(e.target.value)} ></input>
+                onChange={(e) => setBio(sanitize(e.target.value))} ></input>
             </div>
             <div className="form-group">
               <h5>Name:</h5>
@@ -119,7 +120,7 @@ export default function EditForm(props) {
                 type="text"
                 className="font-italic m-3 mb-5 block px-4"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setName(sanitize(e.target.value))}
               />
             </div>
             <div className="form-group">
@@ -128,7 +129,7 @@ export default function EditForm(props) {
                 type="text"
                 className="font-italic m-3 mb-5 block px-4"
                 value={hometown}
-                onChange={(e) => setHometown(e.target.value)}
+                onChange={(e) => setHometown(sanitize(e.target.value))}
               />
             </div>
             <div className="form-group">
@@ -137,7 +138,7 @@ export default function EditForm(props) {
                 type="text"
                 className="font-italic m-3 mb-5 block px-4"
                 value={birthdate}
-                onChange={(e) => setBirthdate(e.target.value)}
+                onChange={(e) => setBirthdate(sanitize(e.target.value))}
               />
             </div>
             <div className="form-group">
@@ -146,7 +147,7 @@ export default function EditForm(props) {
                 type="text"
                 className="font-italic m-3 mb-5 block px-4"
                 value={major}
-                onChange={(e) => setMajor(e.target.value)}
+                onChange={(e) => setMajor(sanitize(e.target.value))}
               />
             </div>
             <button className="btn btn-sm btn-secondary me-2" onClick={(e) => handleCancel(e)}>Cancel</button>

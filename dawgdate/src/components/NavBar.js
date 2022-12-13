@@ -5,12 +5,6 @@ import { getAuth, signOut } from "firebase/auth";
 export default function NavBar(props) {
 
   let navLinks;
-  let hardCodedUser = { "UWNetId": "person1", "name": "Wayne", "gender": "Male", "pronouns": "he/him", "bio": " If you’re looking for a guy who will sweetly kiss your forehead and hold your hand, I’m not your guy.", "birthdate": "2001-05-23", "hometown": "Bellevue, WA", "major": "Biology", "profile-pic": "person-1.avif", "connections": ["person2", "person3"], "img": "/img/person-1.avif" };
-
-  const handleLogin = function () {
-    props.handleLoginCallback(hardCodedUser)
-    props.handleConnectionsCallback(hardCodedUser.connections)
-  }
 
   const handleLogOut = function (event) {
     signOut(getAuth())
@@ -19,9 +13,11 @@ export default function NavBar(props) {
   if (props.variant === 'landing') {
     navLinks = (
       <ul>
-        <li onClick={handleLogin}><NavLink className="nav-link" to="/home">LOGIN</NavLink></li>
+        <li><NavLink className="nav-link" to="/signin">LOGIN</NavLink></li>
       </ul>
     )
+  } else if (props.variant === 'signin') {
+    navLinks = <ul></ul>
   } else {
     navLinks = (
       <ul>
