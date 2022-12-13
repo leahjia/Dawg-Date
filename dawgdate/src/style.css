@@ -55,11 +55,11 @@ nav img {
 
 .navbar ul li {
     display: inline-block;
-    margin-left: 1rem;
-    padding: 1rem 1rem;
+    margin-left: .2rem;
+    padding: .5rem 1rem;
     color: azure;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .btn {
@@ -312,24 +312,6 @@ input[type=text] {
     box-sizing: border-box;
   }
   
-.hamburger {
-  background: transparent;
-  border: none;
-  padding: 10px 15px;
-  font-size: 18px;
-  display: block;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 600px) {
-  .navbar ul {
-    display: none;
-  }
-  .hamburger {
-    display: block;
-  }
-}
 
 /* media queries for larger screens */
 @media (min-width: 768px) {
@@ -359,6 +341,15 @@ input[type=text] {
 
     .search-bar input {
         width: 30rem;
+    }
+
+    .navbar ul li {
+        display: inline-block;
+        margin-left: 1rem;
+        padding: 1rem 1rem;
+        color: azure;
+        text-decoration: none;
+        font-size: 1.2rem;
     }
 
 }
