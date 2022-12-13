@@ -8,7 +8,6 @@ import App from './components/App.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import './style.css';
 
-import SAMPLE_PROFILES from './profile-data.json';
 
 const firebaseConfig = {
 	apiKey: "AIzaSyBJDHv8W0b6P2XuYFpJVPEe5X4YRy6Nb3E",
@@ -24,6 +23,6 @@ const app = initializeApp(firebaseConfig);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<BrowserRouter>
-		<App profileData={SAMPLE_PROFILES} />
+		<App />
 	</BrowserRouter>
 );
