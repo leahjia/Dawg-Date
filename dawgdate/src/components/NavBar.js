@@ -58,20 +58,13 @@ export default function NavBar(props) {
         <li><NavLink
           className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
           to="/profile">MY PROFILE</NavLink></li>
-        {/* {currentUser.UWNetId &&
-          <> */}
-            <li><NavLink
-              className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
-              to="/"><button className="btn" onClick={handleSignOut}>LOG OUT</button></NavLink></li>
-          {/* </>
-        } */}
-        {/* {!currentUser.UWNetId && */}
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/signin">
-              {/* <img src={currentUser.userImg} alt={currentUser.userName + " avatar"} /> */}
-            </NavLink>
-          </li>
-        {/* } */}
+        <li><NavLink
+          className={"nav-link " + (({ isActive }) => isActive ? "active" : undefined)}
+          to="/"><button className="btn" onClick={handleSignOut}>LOG OUT</button></NavLink></li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/signin">
+          </NavLink>
+        </li>
       </ul>
     )
   }
