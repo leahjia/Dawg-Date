@@ -32,37 +32,15 @@ export default function SelfProfilePage(props) {
     // console.log("Uploading", imageFile);
     const storage = getStorage();
     // console.log(currentUser)
-    const userImageRef = storageRef(storage, "/userImages/" + currentUser.UWNetId + ".png");
+    const userImageRef = storageRef(storage, "/userImages/" + currentUser.uid + ".png");
     await uploadBytes(userImageRef, imageFile);
 
     const downloadUrlString = await getDownloadURL(userImageRef)
     // console.log(downloadUrlString)
     await updateProfile(currentUser, { photoURL: downloadUrlString })
-    const userDbRef = dbRef(getDatabase(), "userData/" + currentUser.UWNetId + "/" + "imgUrl");
+    const userDbRef = dbRef(getDatabase(), "userData/" + currentUser.uid + "/" + "img");
     firebaseSet(userDbRef, downloadUrlString);
   }
-  const [about, setAbout] = useState()
-  const [Bio, setBio] = useState()
-  const [editing, setEditing] = useState(false)
-
-//   useEffect(() => {
-//     const aboutRef = dbRef(getDatabase(), "userData/" + currentUser.uid + "/" + "about");
-//     const bioRef = dbRef(getDatabase(), "userData/" + currentUser.UWNetId + "/" + "bio");
-//     console.log(bioRef)
-// 
-//     //when db value changes
-//     const offFunctionAbout = onValue(aboutRef, (snapshot) => { setAbout(snapshot.val()) })
-//     const offFunctionBio = onValue(bioRef, (snapshot) => { setBio(snapshot.val()) })
-// 
-//     function cleanup() {
-//       console.log("component is being removed");
-//       //when the component goes away, we turn off the listener
-//       offFunctionAbout();
-//       offFunctionBio();
-//     }
-//     return cleanup; //return instructions on how to turn off lights
-//   }, [])
-
   return (
     <div>
       <div className="snippet-body"><div className="row py-5 px-4"><div className="col-md-5 mx-auto"><div className="bg-white shadow rounded overflow-hidden">
