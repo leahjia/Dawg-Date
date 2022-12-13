@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 import { ProfileList } from "./ProfileList.js";
 import NavBar from "./NavBar.js";
-import { get } from "firebase/database";
+import { get, ref, getDatabase } from "firebase/database";
+import { onValue } from "firebase/database";
 
 export default function ConnectionsPage(props) {
 	const currentUser = props.currentUser;

@@ -37,26 +37,34 @@ export default function App(props) {
         setCurrentUser(null);
       }
     })
+  }, [])
+  useEffect(() => {
     const userListRef = ref(db, 'userData');
-    onValue(userListRef, ((snapshot) => {
+    const unregisterFunction = onValue(userListRef, ((snapshot) => {
       console.log('running')
       const userEntries = Object.entries(snapshot.val());
       const userList = userEntries.map((entry) => {
         return entry[1];
       })
-      console.log(userList);
       setUserList(userList);
     }))
+    function cleanup() {
+      unregisterFunction();
+    }
+    return cleanup;
   }, []) //array is list of variables that will cause this to rerun if changed
 
   useEffect(() => {
+    console.log("LOGGED IN!!!")
     if (currentUser) {
+      console.log('EFECT HOOK RUNNING!!!')
       const currentUserRef = ref(db, 'userData/'+currentUser.uid)
       const unregisterFunction = onValue(currentUserRef, (snapshot) => {
         console.log("refreshing user" + snapshot.val())
         setCurrentUser(snapshot.val())
       })
       function cleanup() {
+        console.log('cleaning')
         unregisterFunction();
       }
       return cleanup;
@@ -107,7 +115,7 @@ export default function App(props) {
         <Route element={<RequireAuth currentUser={currentUser} />}>
           <Route path="/home" element={<HomePage profileData={userList} currentUser={currentUser} sendRequest={sendRequest} />} />
           <Route path="/profile" element={<MyProfile currentUser={currentUser} />} />
-          <Route path="/connections" element={<ConnectionsPage profileData={userList} currentUser={currentUser} acceptRequest={acceptRequest} removeConnection={removeConnection}/>} />
+          <Route path="/connections" element={<ConnectionsPage setCurrentUser={setCurrentUser} profileData={userList} currentUser={currentUser} acceptRequest={acceptRequest} removeConnection={removeConnection}/>} />
           <Route path="/user/:UWNetId" element={<OtherProfilePage profileData={userList} currentUser={currentUser} />} />
           <Route path="/edit" element={<EditForm currentUser={currentUser}/>} />
         </Route>
