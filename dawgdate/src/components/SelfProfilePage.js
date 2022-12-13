@@ -98,15 +98,6 @@ export default function SelfProfilePage(props) {
         </div>
         <div className="px-4 py-3">
           <EditForm currentUser={currentUser}></EditForm>
-          <div className="py-4 px-4">
-            <div className="d-flex align-items-center justify-content-between mb-3">
-              <h5 className="mb-0">Photos</h5>
-              <a href="#" className="btn btn-link text-muted">Show all</a>
-            </div>
-            <div className="row">
-              {photoElems}
-            </div>
-          </div>
         </div>
       </div></div></div></div>
     </div>
