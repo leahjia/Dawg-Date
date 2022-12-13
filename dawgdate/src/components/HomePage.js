@@ -9,42 +9,26 @@ export default function HomePage(props) {
   const [genderSelect, setSelect] = useState('')
   const [majorSelect, setSelect2] = useState('')
   const [hometownSelect, setSelect3] = useState('')
-  const [category, setCategory] = useState('')
-  const [category2, setCategory2] = useState('')
-  const [category3, setCategory3] = useState('')
-  function applyFilter(val, cate) {
-    setSelect(val)
-    setCategory(cate)
-    setSelect2(val)
-    setCategory2(cate)
-    setSelect3(val)
-    setCategory3(cate)
+
+  function applyFilter(c1, c2, c3) {
+    setSelect(c1)
+    setSelect2(c2)
+    setSelect3(c3)
   }
 
   let displayedData = props.profileData.filter(t => {
-
     // currentUser(from firebase) does not have a currentUserConnections prop
-    
     if (currentUser.uid === t.uid) {
       return false;
     } else if (currentUser.connections && Object.keys(currentUser.connections).includes(t.uid)) {
       return false;
-    } else if (input !== '') {
-      return input === t.name;
-    } else if (majorSelect === '') {
-      return true;
-    } else if (genderSelect === '') {
-      return true;
-    } else if (hometownSelect === '') {
-      return true;
-    } else {
-      if (category === "majorSelect")
-        return t.major === majorSelect
-      else if (category2 === "genderSelect")
-        return t.gender === genderSelect
-      else if (category3 === "hometownSelect")
-        return t.hometown === hometownSelect
-    }
+    } else if (t.major !== majorSelect) {
+      return false
+    } else if (t.gender !== genderSelect) {
+      return false
+    } else if (t.hometown === hometownSelect) {
+      return false
+    } else return true
   })
 
   function applySearch(i) {
