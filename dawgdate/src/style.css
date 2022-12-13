@@ -64,8 +64,8 @@ nav img {
 
 .btn {
     display: inline-block;
-    margin: 0;
-    padding: 0;
+    margin: .5rem;
+    padding: .3rem;
     color: azure;
     text-decoration: none;
     font-size: 1.2rem;
@@ -305,7 +305,13 @@ footer {
     flex: 0 0 auto;
     width: auto;
 }
-
+input[type=text] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  
 .hamburger {
   background: transparent;
   border: none;

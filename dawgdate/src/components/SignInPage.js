@@ -49,6 +49,7 @@ export default function SignInPage(props) {
             "hometown": "", 
             "major": "", 
             "profile-pic": "", 
+            "about": "",
             "connections": [],
             "sentConnections": [],
             "receivedConnections" : [],
