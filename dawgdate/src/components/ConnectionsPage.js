@@ -2,14 +2,37 @@ import React from "react";
 
 import { ProfileList } from "./ProfileList.js";
 import NavBar from "./NavBar.js";
+import { get } from "firebase/database";
 
 export default function ConnectionsPage(props) {
 	const currentUser = props.currentUser;
+  console.log(currentUser)
 
-	const displayedData = props.profileData.filter((userProfile) => {
-		// currentUser (from firebase) does not have a currentUserConnections prop
-		return props.currentUserConnections ? props.currentUserConnections.includes(userProfile.UWNetId) : false
-	})
+  let existingConnections = [];
+  let incomingConnections = [];
+
+  if (currentUser.connections) {
+    existingConnections = props.profileData.filter((userProfile) => {
+      // currentUser (from firebase) does not have a currentUserConnections prop
+      if (Object.keys(currentUser.connections).includes(userProfile.uid)) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+  }
+
+  if (currentUser.receivedConnections) {
+    incomingConnections = props.profileData.filter((userProfile) => {
+
+      console.log("test" + Object.keys(currentUser.receivedConnections))
+      if (Object.keys(currentUser.receivedConnections).includes(userProfile.uid)) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+  }
 
 	return (
 		<div>
@@ -17,10 +40,16 @@ export default function ConnectionsPage(props) {
 				<NavBar />
 			</header>
 			<main>
-				<div className="profile-list">
-					<h1>My Connections</h1>
-					<ProfileList profileData={displayedData} currentUser={props.currentUser} currentUserConnections={props.currentUserConnections} handleConnectionCallback={props.handleConnectionCallback} />
-				</div>
+        <div className="container">
+          <div className="profile-list">
+            <h1>Incoming Requests</h1>
+            <ProfileList variant='incomingConnections' profileData={incomingConnections} currentUser={props.currentUser} acceptRequest={props.acceptRequest}/>
+          </div>
+          <div className="profile-list">
+            <h1>My Connections</h1>
+            <ProfileList variant='establishedConnections' profileData={existingConnections} currentUser={props.currentUser} currentUserConnections={props.currentUserConnections} handleConnectionCallback={props.handleConnectionCallback} />
+          </div>
+        </div>
 			</main>
 		</div>
 	)

@@ -17,13 +17,21 @@ function ProfileCard(props) {
   }(profileData.birthdate);
 
   let heartColor = 'grey';
-  if (props.currentUserConnections.includes(profileData.UWNetId)) {
+  
+  if (props.currentUser.hasConnections && Object.keys(props.currentUser.connections).includes(profileData.uid)) {
     heartColor = 'red';
   }
 
   const handleConnect = function (event) {
     const userString = event.currentTarget.getAttribute('user');
-    props.handleConnectionCallback(userString);
+    if (props.variant === 'main') {
+      props.sendRequest(userString);
+    } else if (props.variant === 'incomingConnections') {
+      props.acceptRequest(userString);
+    } else if (props.variant === 'establishedConnections') {
+      props.removeConnection(userString);
+    }
+    heartColor = 'red';
   }
 
   return (
@@ -33,7 +41,7 @@ function ProfileCard(props) {
         <h2 className="profile-name">{profileData.name} | {userAge} ({profileData.pronouns})</h2>
       </Link>
       <p className="profile-description">{profileData.bio}</p>
-      <button user={profileData.UWNetId} className="btn like-button" onClick={handleConnect}>
+      <button user={profileData.uid} className="btn like-button" onClick={handleConnect}>
         <span className="material-icons" style={{ color: heartColor }}>favorite</span>
       </button>
     </div>
@@ -48,8 +56,11 @@ export function ProfileList(props) {
         profileData={profileObj}
         currentUser={props.currentUser}
         currentUserConnections={props.currentUserConnections}
-        handleConnectionCallback={props.handleConnectionCallback}
+        sendRequest={props.sendRequest}
+        acceptRequest={props.acceptRequest}
+        removeConnection={props.removeConnection}
         key={profileObj.UWNetId}
+        variant={props.variant}
       />
     )
     return component;

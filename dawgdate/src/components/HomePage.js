@@ -25,10 +25,12 @@ export default function HomePage(props) {
 
     // currentUser(from firebase) does not have a currentUserConnections prop
     
-    if (currentUser.UWNetId === t.UWNetId || currentUser.connections.includes(t.UWNetId)) {
+    if (currentUser.uid === t.uid) {
+      return false;
+    } else if (currentUser.connections && Object.keys(currentUser.connections).includes(t.uid)) {
       return false;
     } else if (input !== '') {
-      return input === t.name
+      return input === t.name;
     } else if (majorSelect === '') {
       return true;
     } else if (genderSelect === '') {
@@ -61,7 +63,7 @@ export default function HomePage(props) {
         <Search profileData={props.profileData} applyFilterCallback={applyFilter} applySearchCallback={applySearch} />
         <div className="profile-list">
           <h1>People You Might Know</h1>
-          <ProfileList profileData={displayedData} currentUser={props.currentUser} currentUserConnections={props.currentUserConnections} handleConnectionCallback={props.handleConnectionCallback} />
+          <ProfileList variant='main' profileData={displayedData} currentUser={props.currentUser} currentUserConnections={props.currentUserConnections} sendRequest={props.sendRequest} />
         </div>
       </main>
     </div>
