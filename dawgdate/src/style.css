@@ -306,6 +306,8 @@ footer {
     width: auto;
 }
 
+
+@media (max-width: 600px) {
 .hamburger {
   background: transparent;
   border: none;
@@ -314,6 +316,52 @@ footer {
   display: block;
   transition-duration: 0.4s;
   cursor: pointer;
+}
+
+  .navbar {
+    position: relative;
+    width: 100%;
+    margin: 0;
+  }
+
+  .navbar button {
+    display: block;
+  }
+
+  .navbar ul {
+    position: absolute;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .navbar ul li {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  .navbar button.active {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .navbar button.active:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .navbar button:hover {
+    background-color: #fff;
+    color: #000;
+  }
 }
 
 @media screen and (max-width: 600px) {
