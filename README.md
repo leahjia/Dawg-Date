@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <a href="https://dawgdate-info340-project.web.app/">
-    <img src="public/img/landing.png" alt="Logo" width="800" height="500">
+    <img src="img/landing.png" alt="Logo" width="800" height="500">
   </a>
 
   <h3 align="center">Dawg Date</h3>
